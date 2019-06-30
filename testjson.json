@@ -1,0 +1,148 @@
+{
+  "users": [
+    {
+      "email": "",
+      "characters": [
+        {
+          "id": "",
+          "class": "",
+          "experience": 0,
+          "mainStats": {
+            "co": {
+              "potential": 0,
+              "temporary": 0,
+              "current": 0
+            },
+            "ag": {
+              "potential": 0,
+              "temporary": 0,
+              "current": 0
+            },
+            "sd": {
+              "potential": 0,
+              "temporary": 0,
+              "current": 0
+            },
+            "me": {
+              "potential": 0,
+              "temporary": 0,
+              "current": 0
+            },
+            "re": {
+              "potential": 0,
+              "temporary": 0,
+              "current": 0
+            },
+            "st": {
+              "potential": 0,
+              "temporary": 0,
+              "current": 0
+            },
+            "qu": {
+              "potential": 0,
+              "temporary": 0,
+              "current": 0
+            },
+            "pr": {
+              "potential": 0,
+              "temporary": 0,
+              "current": 0
+            },
+            "in": {
+              "potential": 0,
+              "temporary": 0,
+              "current": 0
+            },
+            "em": {
+              "potential": 0,
+              "temporary": 0,
+              "current": 0
+            }
+          },
+          "resists": {
+            "disease": {
+              "misc": 0,
+              "item": 0
+            },
+            "poison": {
+              "misc": 0,
+              "item": 0
+            },
+            "terrorFear": {
+              "misc": 0,
+              "item": 0
+            },
+            "essence": {
+              "misc": 0,
+              "item": 0
+            },
+            "channeling": {
+              "misc": 0,
+              "item": 0
+            },
+            "mentalism": {
+              "misc": 0,
+              "item": 0
+            }
+          },
+          "skillAreas": {
+            "academic": 0,
+            "arms": 0,
+            "athletic": 0,
+            "base": 0,
+            "body": 0,
+            "concentration": 0,
+            "deadly": 0,
+            "directed": 0,
+            "general": 0,
+            "linguistic": 0,
+            "magical": 0,
+            "medical": 0,
+            "outdoor": 0,
+            "perception": 0,
+            "social": 0,
+            "subterfuge": 0
+          },
+          "languages": [],
+          "movement": {
+            "fullMove": 60,
+            "maneuverPen": 0
+          },
+          "defenses": [
+            {
+              "mode": "",
+              "at": 1,
+              "shieldType": "",
+              "shieldBonus": 0,
+              "otherBonus": 0
+            }
+          ],
+          "magic": [
+            {
+              "realm": "Essence",
+              "ptsPerLvl": 0,
+              "mult": 1
+            }
+          ],
+          "health": {
+            "rolled": 0
+          },
+          "fluffStats": {
+            "name": "",
+            "race": "",
+            "residence": "",
+            "sex": "",
+            "weight": 150,
+            "height": 72,
+            "age": 18,
+            "hand": "Right",
+            "hair": "",
+            "eyes": "",
+            "birthday": "",
+            "racialAbilities": ""
+          }
+        }
+      ]
+    }
+  ]
+}
