@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.5.5",
     "@types/react": "^16.8.20",
     "firebase": "^6.2.4",
     "re-base": "^4.0.0",
