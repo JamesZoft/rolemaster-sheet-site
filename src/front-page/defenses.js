@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -25,7 +25,42 @@ const calculateShieldbonus = type => {
   }
 };
 
+const firestoreSave = (firestore, defenses) => (bonus, bonusName, rowNum) => {
+  const defenseRow = defenses[rowNum];
+  defenseRow[bonusName] = bonus;
+
+  firestore
+    .collection("users")
+    .doc("0")
+    .collection("characters")
+    .doc("0")
+    .set(
+      {
+        defenses: defenses
+      },
+      { merge: true }
+    );
+};
+
+const generateCurrentRowPartial = save => (initial, label, rowNum) => {
+  const [stat, setStat] = useState(initial);
+  return (
+    <td>
+      <input
+        type={typeof initial == "number" ? "number" : "string"}
+        value={stat}
+        onChange={e => setStat(e.target.value)}
+        onBlur={e => save(stat, label, rowNum)}
+      />
+    </td>
+  );
+};
+
 const Defenses = props => {
+  const generateTd = generateCurrentRowPartial(
+    firestoreSave(props.firestore, props.defenses)
+  );
+
   return (
     <Wrapper>
       <table>
@@ -45,12 +80,12 @@ const Defenses = props => {
             const shieldBonus = calculateShieldbonus(defenseLine.shieldType);
             return (
               <tr key={i}>
-                <td>{defenseLine.mode}</td>
-                <td>{defenseLine.at}</td>
-                <td>{defenseLine.shieldType}</td>
+                {generateTd(defenseLine.mode, "mode", i)}
+                {generateTd(defenseLine.at, "at", i)}
+                {generateTd(defenseLine.shieldType, "shieldType", i)}
                 <td>{shieldBonus}</td>
                 <td>{props.quBonus}</td>
-                <td>{defenseLine.otherBonus}</td>
+                {generateTd(defenseLine.otherBonus, "otherBonus", i)}
                 <td>{shieldBonus + props.quBonus + defenseLine.otherBonus}</td>
               </tr>
             );

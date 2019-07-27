@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import racials from "./racialAbilities.json";
 
 const ClassInfoWrapper = styled.div`
     flex: 2;
@@ -21,34 +22,87 @@ const ClassInfoWrapper = styled.div`
   Level = styled.div`
     flex: 1;
   `,
-  Racials = styled.textarea`
+  Racials = styled.div`
     border: 1px solid lightgrey;
     height: 100px;
   `;
 
+const firestoreSave = firestore => (bonus, bonusName) => {
+  firestore
+    .collection("users")
+    .doc("0")
+    .collection("characters")
+    .doc("0")
+    .set(
+      {
+        [bonusName]: bonus
+      },
+      { merge: true }
+    );
+};
+
+const calculateExpNeeded = (xpLevelMap, level) => {
+  const xpForLevels = Object.keys(xpLevelMap).filter(
+    val => xpLevelMap[val] === level || xpLevelMap[val] === level + 1
+  );
+  if (level === 0) {
+    xpForLevels.unshift(0);
+  }
+  return xpForLevels[1] - xpForLevels[0];
+};
+
 const ClassExp = props => {
+  const [exp, setExp] = useState(props.experience);
+  const [level, setLevel] = useState(props.calculateLevelFromExp(exp));
+
+  const xpNeeded = calculateExpNeeded(props.xpLevelMap, level) + "";
+  const racialAbilities = racials[props.race];
+
+  const [charClass, setCharClass] = useState(props.charClass);
+
+  const save = firestoreSave(props.firestore);
+
   return (
     <Wrapper>
       <ClassInfoWrapper>
         <div>
           <div>Class</div>
-          <div>{props.class}</div>
+          <div>
+            <input
+              value={charClass}
+              onChange={e => setCharClass(e.target.value)}
+              onBlur={e => save(charClass, "charClass")}
+            />
+          </div>
         </div>
         <Level>
           <div>Level</div>
-          <div>{props.level}</div>
+          <div>{level}</div>
         </Level>
         <div>
           <div>Experience</div>
-          <div>{props.exp}</div>
+          <div>
+            <input
+              type="number"
+              value={exp}
+              onChange={e => setExp(e.target.value)}
+              onBlur={e => save(exp, "experience")}
+            />
+          </div>
         </div>
         <div>
           <div>Exp for next level</div>
-          <div>{props.expNeeded}</div>
+          <div>{xpNeeded}</div>
         </div>
       </ClassInfoWrapper>
-      <div>Racial Abilities</div>
-      <Racials />
+      <div>
+        <div>Racial Abilities</div>
+        <Racials>
+          {racialAbilities.map((ability, i) => (
+            <div key={i}>{ability}</div>
+          ))}
+        </Racials>
+      </div>
     </Wrapper>
   );
 };

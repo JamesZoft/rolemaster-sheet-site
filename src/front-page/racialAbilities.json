@@ -1,0 +1,258 @@
+{
+  "Dwarf": [
+    "Darkvision=Night/Underground Vision",
+    "Exceptional Stamina",
+    "+30vsHeat/Cold, -50 swimming(ME)"
+  ],
+  "Elf - Aquatic": ["Night Vision", "Exceptional Stamina", "Meditation @ +20"],
+  "Elf - Dark": [
+    "Darkvision=Night/Underground Vision",
+    "Exceptional Stamina",
+    "Meditation @ +20"
+  ],
+  "Elf - Grey": ["Night Vision", "Exceptional Stamina", "Meditation @ +20"],
+  "Elf - High (ME)": ["Night Vision, superior sight", "Meditation @ +20", ""],
+  "Elf - Noldor": [
+    "Night Vision,superior sight",
+    "Exceptional Stamina. Do not sleep, Rest in Trance/Med once a day.+25 to Meditation, Immortal",
+    " Do not scar. +20 vs Cold, +20 Attunement"
+  ],
+  "Elf - Sindar": [
+    "Night Vision",
+    "Exceptional Stamina",
+    "Meditation @ +20.Immortal, Do not scar, +15 vs cold"
+  ],
+  "Elf - Silvan": [
+    "Night Vision",
+    "Exceptional Stamina",
+    "Meditation @ +20. Immortal, Do not scar. +10 vs cold,+10 Bardic spells, +10 Trickery, Stalk/Hide"
+  ],
+  "Elf - Teleri": [
+    "Night Vision",
+    "Exceptional Stamina",
+    "Meditation @ +20. Immortal, Do not scar. +10 vs cold"
+  ],
+  "Great Man": ["Night/Underground Vision", "Exceptional Stamina", ""],
+  "Half-Elf A": ["Night Vision", "Resist Cold @ +5", ""],
+  "Half-Elf B": ["Night Vision", "Resist Cold @ +5", ""],
+  "Half-Elf C": [
+    "Night Vision",
+    "Resist Cold @ +5",
+    "Animals won't attack unless you attack first."
+  ],
+  "Half-Elf D": ["Night Vision", "Resist Cold @ +5", "Horse combat benefit"],
+  "Half-Elf E": ["Night Vision", "Resist Cold @ +5", ""],
+  "Half-Elf F": ["Dark Vision=Night/Underground Vision", "", ""],
+  "Half-Ogre": ["Dark Vision=Night/Underground Vision", "", ""],
+  "Half-Orc A": ["", "", ""],
+  "Half-Troll": ["Dark Vision=Night/Underground Vision", "", ""],
+  "Half-Uruk": ["", "", ""],
+  "High Man": [
+    "Av 6'3 - 6'7,200-275 lbs",
+    "Hair dark-brown/coal-black, eyes blue/grey/black.",
+    "Pure blood can live upto 300 years"
+  ],
+  "High Man - Dark Numenorean": [
+    "Sailing @ +25",
+    "+25 boat handling/pilot etc",
+    "+10 OB,-10DB"
+  ],
+  "High Man - Dunadan": ["Sailing @ +25", "", ""],
+  "Hobbit - Fallohide": ["Night Vision", "", ""],
+  "Hobbit - Harfoot": ["Night Vision", "", ""],
+  "Hobbit - Stoor": [
+    "Night Vision",
+    "Boating Skills @ +10",
+    "Fishing Skills @ +10"
+  ],
+  "Man - Chy": ["", "", ""],
+  "Man - Common": ["", "", ""],
+  "Man - Dorwinadan (CB)": [
+    "+30 vs poison",
+    "+15 Acting and Public Speaking",
+    "+10 Rowing"
+  ],
+  "Man - Dorwinadan": [
+    "+30 vs poison",
+    "+15 Acting and Public Speaking",
+    "+10 Rowing"
+  ],
+  "Man - Dunlending(CB)": [
+    "+20 Climbing,Acrobatics",
+    "+20 Public Speaking,Acting",
+    " [Celt types - like bright kilts]"
+  ],
+  "Man - Dunlending": [
+    "+20 Climbing,Acrobatics",
+    "+20 Public Speaking,Acting",
+    " [Celt types - like bright kilts]"
+  ],
+  "Man - Dusheran": ["", "", ""],
+  "Man - Dyrian": ["", "", ""],
+  "Man - Easterling": [
+    "Combat from Horseback/Chariot @ +10",
+    " Animal handle/horse @ +20",
+    ""
+  ],
+  "Man - Haradan": [
+    "Resist Bright Light @ +20",
+    "+10vsHeat/Fire, -10vsCold,unaffected by extremely bright light.",
+    ""
+  ],
+  "Man - Lossadan": [
+    "'Resist Natural Cold (+20 vs Cold),-20vsHeat/Fire",
+    "Acute senses -+10Perception",
+    ""
+  ],
+  "Man - Rural": ["", "", ""],
+  "Man - Urban": ["", "", ""],
+  "Man - Variag": [
+    "Combat from Horseback @ +10, Camelback @ +5",
+    "Exceptional Stamina",
+    "Horse Handling @ +20"
+  ],
+  "Mixed Man": ["", "", ""],
+  "Mixed Man - Corsair(CB)": [
+    "+25 WeatherWatch or Star-gaze activities [ & boats? Ask CB]",
+    "",
+    ""
+  ],
+  "Mixed Man - Corsair": [
+    "+25 WeatherWatch or Star-gaze activities [ & boats? Ask CB]",
+    "",
+    ""
+  ],
+  "Mutant": ["Dark Vision=Night/Underground Vision", "", ""],
+  "NorthMan - Beorning": [
+    "Animals will not attack first",
+    "Only need to sleep 2 out of 3 days.",
+    ""
+  ],
+  "NorthMan - Rohirrim": ["Combat from Horseback @ +20 OB", "", ""],
+  "NorthMan - Woodsman": ["Climbing/Acrobatics @ +20", "Foraging @ +10", ""],
+  "Nurniag": ["", "", ""],
+  "Old Dark Man - Womaw": [
+    "Av 6'3 - 6'7,200-275 lbs",
+    "Hair Blonde/Red/Lt Brown, eyes brown/amber/green.",
+    "Pure blood can live up to 150 years"
+  ],
+  "Olog Hai": [
+    "Darkvision-Night/Underground Vision",
+    "Exceptional Stamina - ignore bleeding/stun criticals from normal weapons(is Large)",
+    ", can operate freely in daylight."
+  ],
+  "Orc - Black Forge": [
+    "Darkvision-Night/Underground Vision",
+    "Exceptional Stamina",
+    ""
+  ],
+  "Orc - Black Wood": [
+    "Darkvision-Night/Underground Vision",
+    "Sunlight Hurts -10",
+    ""
+  ],
+  "Orc - Blue Nose": [
+    "Darkvision-Night/Underground Vision",
+    "Sunlight Hurts -10",
+    ""
+  ],
+  "Orc - Deep": [
+    "Darkvision-Night/Underground Vision",
+    "Sunlight Hurts -10",
+    ""
+  ],
+  "Orc - Greater": [
+    "Darkvision-Night/Underground Vision",
+    "Exceptional Stamina",
+    ""
+  ],
+  "Orc - Grey Mountain": [
+    "Darkvision-Night/Underground Vision",
+    "Sunlight Hurts -10",
+    "-60 in daylight,-25 in magical/artifical daylight,DarkVision,30vsFire/Heat"
+  ],
+  "Orc - High Old": [
+    "Darkvision-Night/Underground Vision",
+    "Sunlight Kills",
+    ""
+  ],
+  "Orc - Lesser": [
+    "Darkvision-Night/Underground Vision",
+    "Sunlight Hurts -10",
+    "-60 in daylight,-25 in magical/artifical daylight,DarkVision,30vsFire/Heat"
+  ],
+  "Orc - Moon": [
+    "Darkvision-Night/Underground Vision",
+    "Sunlight Hurts -10",
+    "-60 in daylight,-25 in magical/artifical daylight,DarkVision,30vsFire/Heat"
+  ],
+  "Orc - Red Eye": [
+    "Darkvision-Night/Underground Vision",
+    "Exceptional Stamina",
+    "Sunlight Hurts -10"
+  ],
+  "Orc - Red Sand": [
+    "Darkvision-Night/Underground Vision",
+    "Exceptional Stamina",
+    ""
+  ],
+  "Orc - Silent Watch": [
+    "Darkvision-Night/Underground Vision",
+    "Sunlight Hurts -10",
+    "-60 in daylight,-25 in magical/artifical daylight,DarkVision,30vsFire/Heat"
+  ],
+  "Orc - Tribeless": [
+    "Darkvision-Night/Underground Vision",
+    "Sunlight Hurts -10",
+    "-60 in daylight,-25 in magical/artifical daylight,DarkVision,30vsFire/Heat"
+  ],
+  "Orc - Wolf": [
+    "Darkvision-Night/Underground Vision",
+    "Exceptional Stamina",
+    "Sunlight Hurts -10,+15 combat from WolfBack"
+  ],
+  "Troll - Generic": [
+    "Darkvision-Night/Underground Vision",
+    "Problems with daylight [GM decision - e.g.Sunlight kills/ turns to stone!, but can't be feared",
+    ""
+  ],
+  "Half-Dwarves": [
+    "Resist Cold @ +30",
+    "Suffer Heat/Fire @ -15",
+    "Exceptional Stamina - need sleep but 3 hours a day"
+  ],
+  "Umli": [
+    "Resist Cold @ +30",
+    "Suffer Heat/Fire @ -15",
+    "Exceptional Stamina - need sleep but 3 hours a day"
+  ],
+  "Uruk Hai": [
+    "Night/Underground Vision. Prefer dark, but not impaired by sunlight",
+    "Exceptional Stamina",
+    ""
+  ],
+  "Vulmi-Shaitan mix": [
+    "Racial benefit innate +10 vs Elemental attacks;",
+    "Vigourous Constitution - good stamina etc. - keep going longer than average & favourable Hit Point Recovery multipler.",
+    ""
+  ],
+  "Wose (CB)": [
+    "Night Vision",
+    "Superb sense of smell -Tracking @ +25",
+    "Foraging @ +15"
+  ],
+  "Wose": [
+    "Night Vision",
+    "Superb sense of smell -Tracking @ +25",
+    "Foraging @ +15"
+  ],
+  "Centaur": ["", "", ""],
+  "Hira'Razhir": ["Fly (Base move 90')", "", ""],
+  "New Race Idiyva": ["NightVision", "Retractible 3 Claws", ""],
+  "New Race Sohleugir": [
+    "Need regular applications of water on dryland!",
+    "",
+    ""
+  ],
+  "Stoi'isslythi": ["Poison Bite", "", ""]
+}

@@ -16,23 +16,49 @@ const Wrapper = styled.div`
     }
   `;
 
+const firestoreSave = firestore => (bonus, bonusName) => {
+  if (typeof bonus === "string") {
+    bonus = parseInt(bonus);
+  }
+  firestore
+    .collection("users")
+    .doc("0")
+    .collection("characters")
+    .doc("0")
+    .set(
+      {
+        skillAreas: {
+          [bonusName]: bonus
+        }
+      },
+      { merge: true }
+    );
+};
+
 const SkillAreas = props => {
-  const [academicBonus, setAcademicBonus] = useState(0);
-  const [armsBonus, setArmsBonus] = useState(0);
-  const [athleticBonus, setAthleticBonus] = useState(0);
-  const [baseBonus, setBaseBonus] = useState(0);
-  const [bodyBonus, setBodyBonus] = useState(0);
-  const [concentrationBonus, setConcentrationBonus] = useState(0);
-  const [deadlyBonus, setDeadlyBonus] = useState(0);
-  const [directedBonus, setDirectedBonus] = useState(0);
-  const [generalBonus, setGeneralBonus] = useState(0);
-  const [linguisticBonus, setLinguisticBonus] = useState(0);
-  const [magicalBonus, setMagicalBonus] = useState(0);
-  const [medicalBonus, setMedicalBonus] = useState(0);
-  const [outdoorBonus, setOutdoorsBonus] = useState(0);
-  const [perceptionBonus, setPerceptionBonus] = useState(0);
-  const [socialBonus, setSocialBonus] = useState(0);
-  const [subterfugeBonus, setSubterfugeBonus] = useState(0);
+  const save = firestoreSave(props.firestore);
+
+  const [academicBonus, setAcademicBonus] = useState(props.academic);
+  const [armsBonus, setArmsBonus] = useState(props.arms);
+  const [athleticBonus, setAthleticBonus] = useState(props.athletic);
+  const [baseBonus, setBaseBonus] = useState(props.base);
+  const [bodyBonus, setBodyBonus] = useState(props.body);
+  const [concentrationBonus, setConcentrationBonus] = useState(
+    props.concentration
+  );
+  const [deadlyBonus, setDeadlyBonus] = useState(props.deadly);
+  const [directedBonus, setDirectedBonus] = useState(props.directed);
+  const [generalBonus, setGeneralBonus] = useState(props.general);
+  const [linguisticBonus, setLinguisticBonus] = useState(props.linguistic);
+  const [magicalBonus, setMagicalBonus] = useState(props.magical);
+  const [medicalBonus, setMedicalBonus] = useState(props.medical);
+  const [outdoorBonus, setOutdoorsBonus] = useState(props.outdoor);
+  const [perceptionBonus, setPerceptionBonus] = useState(props.perception);
+  const [socialBonus, setSocialBonus] = useState(props.social);
+  const [subterfugeBonus, setSubterfugeBonus] = useState(props.subterfuge);
+  const [level, setLevel] = useState(
+    props.calculateLevelFromExp(props.experience)
+  );
 
   return (
     <Wrapper>
@@ -50,10 +76,13 @@ const SkillAreas = props => {
                 type="number"
                 id="academicBonus"
                 value={academicBonus}
-                onChange={setAcademicBonus}
+                onChange={e => {
+                  setAcademicBonus(e.target.value);
+                  save(e.target.value, "academic");
+                }}
               />
             </td>
-            <td>{academicBonus * props.level}</td>
+            <td>{academicBonus * level}</td>
           </tr>
           <tr>
             <td>Arms</td>
@@ -62,10 +91,13 @@ const SkillAreas = props => {
                 type="number"
                 id="armsBonus"
                 value={armsBonus}
-                onChange={setArmsBonus}
+                onChange={e => {
+                  setArmsBonus(e.target.value);
+                  save(e.target.value, "arms");
+                }}
               />
             </td>
-            <td>{armsBonus * props.level}</td>
+            <td>{armsBonus * level}</td>
           </tr>
           <tr>
             <td>Athletic</td>
@@ -74,10 +106,13 @@ const SkillAreas = props => {
                 type="number"
                 id="athleticBonus"
                 value={athleticBonus}
-                onChange={setAthleticBonus}
+                onChange={e => {
+                  setAthleticBonus(e.target.value);
+                  save(e.target.value, "athletic");
+                }}
               />
             </td>
-            <td>{athleticBonus * props.level}</td>
+            <td>{athleticBonus * level}</td>
           </tr>
           <tr>
             <td>Base</td>
@@ -86,10 +121,13 @@ const SkillAreas = props => {
                 type="number"
                 id="baseBonus"
                 value={baseBonus}
-                onChange={setBaseBonus}
+                onChange={e => {
+                  setBaseBonus(e.target.value);
+                  save(e.target.value, "base");
+                }}
               />
             </td>
-            <td>{baseBonus * props.level}</td>
+            <td>{baseBonus * level}</td>
           </tr>
           <tr>
             <td>Body</td>
@@ -98,10 +136,13 @@ const SkillAreas = props => {
                 type="number"
                 id="bodyBonus"
                 value={bodyBonus}
-                onChange={setBodyBonus}
+                onChange={e => {
+                  setBodyBonus(e.target.value);
+                  save(e.target.value, "body");
+                }}
               />
             </td>
-            <td>{bodyBonus * props.level}</td>
+            <td>{bodyBonus * level}</td>
           </tr>
           <tr>
             <td>Concentration</td>
@@ -110,10 +151,13 @@ const SkillAreas = props => {
                 type="number"
                 id="concentrationBonus"
                 value={concentrationBonus}
-                onChange={setConcentrationBonus}
+                onChange={e => {
+                  setConcentrationBonus(e.target.value);
+                  save(e.target.value, "concentration");
+                }}
               />
             </td>
-            <td>{concentrationBonus * props.level}</td>
+            <td>{concentrationBonus * level}</td>
           </tr>
           <tr>
             <td>Deadly</td>
@@ -122,10 +166,13 @@ const SkillAreas = props => {
                 type="number"
                 id="deadlyBonus"
                 value={deadlyBonus}
-                onChange={setDeadlyBonus}
+                onChange={e => {
+                  setDeadlyBonus(e.target.value);
+                  save(e.target.value, "deadly");
+                }}
               />
             </td>
-            <td>{deadlyBonus * props.level}</td>
+            <td>{deadlyBonus * level}</td>
           </tr>
           <tr>
             <td>Directed</td>
@@ -134,10 +181,13 @@ const SkillAreas = props => {
                 type="number"
                 id="directedBonus"
                 value={directedBonus}
-                onChange={setDirectedBonus}
+                onChange={e => {
+                  setDirectedBonus(e.target.value);
+                  save(e.target.value, "directed");
+                }}
               />
             </td>
-            <td>{directedBonus * props.level}</td>
+            <td>{directedBonus * level}</td>
           </tr>
           <tr>
             <td>General</td>
@@ -146,10 +196,13 @@ const SkillAreas = props => {
                 type="number"
                 id="genralBonus"
                 value={generalBonus}
-                onChange={setGeneralBonus}
+                onChange={e => {
+                  setGeneralBonus(e.target.value);
+                  save(e.target.value, "general");
+                }}
               />
             </td>
-            <td>{generalBonus * props.level}</td>
+            <td>{generalBonus * level}</td>
           </tr>
           <tr>
             <td>Linguistic</td>
@@ -158,10 +211,13 @@ const SkillAreas = props => {
                 type="number"
                 id="linguisticBonus"
                 value={linguisticBonus}
-                onChange={setLinguisticBonus}
+                onChange={e => {
+                  setLinguisticBonus(e.target.value);
+                  save(e.target.value, "linguistic");
+                }}
               />
             </td>
-            <td>{linguisticBonus * props.level}</td>
+            <td>{linguisticBonus * level}</td>
           </tr>
           <tr>
             <td>Magical</td>
@@ -170,10 +226,13 @@ const SkillAreas = props => {
                 type="number"
                 id="magicalBonus"
                 value={magicalBonus}
-                onChange={setMagicalBonus}
+                onChange={e => {
+                  setMagicalBonus(e.target.value);
+                  save(e.target.value, "magical");
+                }}
               />
             </td>
-            <td>{magicalBonus * props.level}</td>
+            <td>{magicalBonus * level}</td>
           </tr>
           <tr>
             <td>Medical</td>
@@ -182,10 +241,13 @@ const SkillAreas = props => {
                 type="number"
                 id="medicalBonus"
                 value={medicalBonus}
-                onChange={setMedicalBonus}
+                onChange={e => {
+                  setMedicalBonus(e.target.value);
+                  save(e.target.value, "medical");
+                }}
               />
             </td>
-            <td>{medicalBonus * props.level}</td>
+            <td>{medicalBonus * level}</td>
           </tr>
           <tr>
             <td>Outdoor</td>
@@ -194,10 +256,13 @@ const SkillAreas = props => {
                 type="number"
                 id="outdoorBonus"
                 value={outdoorBonus}
-                onChange={setOutdoorsBonus}
+                onChange={e => {
+                  setOutdoorsBonus(e.target.value);
+                  save(e.target.value, "outdoors");
+                }}
               />
             </td>
-            <td>{outdoorBonus * props.level}</td>
+            <td>{outdoorBonus * level}</td>
           </tr>
           <tr>
             <td>Perception</td>
@@ -206,10 +271,13 @@ const SkillAreas = props => {
                 type="number"
                 id="perceptionBonus"
                 value={perceptionBonus}
-                onChange={setPerceptionBonus}
+                onChange={e => {
+                  setPerceptionBonus(e.target.value);
+                  save(e.target.value, "perception");
+                }}
               />
             </td>
-            <td>{perceptionBonus * props.level}</td>
+            <td>{perceptionBonus * level}</td>
           </tr>
           <tr>
             <td>Social</td>
@@ -218,10 +286,13 @@ const SkillAreas = props => {
                 type="number"
                 id="socialBonus"
                 value={socialBonus}
-                onChange={setSocialBonus}
+                onChange={e => {
+                  setSocialBonus(e.target.value);
+                  save(e.target.value, "social");
+                }}
               />
             </td>
-            <td>{socialBonus * props.level}</td>
+            <td>{socialBonus * level}</td>
           </tr>
           <tr>
             <td>Subterfuge</td>
@@ -230,10 +301,13 @@ const SkillAreas = props => {
                 type="number"
                 id="subterfugeBonus"
                 value={subterfugeBonus}
-                onChange={setSubterfugeBonus}
+                onChange={e => {
+                  setSubterfugeBonus(e.target.value);
+                  save(e.target.value, "subterfuge");
+                }}
               />
             </td>
-            <td>{subterfugeBonus * props.level}</td>
+            <td>{subterfugeBonus * level}</td>
           </tr>
         </tbody>
       </Table>

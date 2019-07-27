@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -16,7 +16,41 @@ const Wrapper = styled.div`
     }
   `;
 
+const firestoreSave = (firestore, languages) => (bonus, bonusName, rowNum) => {
+  const langRow = languages[rowNum];
+  langRow[bonusName] = bonus;
+
+  firestore
+    .collection("users")
+    .doc("0")
+    .collection("characters")
+    .doc("0")
+    .set(
+      {
+        languages: languages
+      },
+      { merge: true }
+    );
+};
+
+const generateTdPartial = save => (initial, label, rowNum) => {
+  const [stat, setStat] = useState(initial);
+  return (
+    <td>
+      <input
+        value={stat}
+        onChange={e => setStat(e.target.value)}
+        onBlur={e => save(stat, label, rowNum)}
+      />
+    </td>
+  );
+};
+
 const Languages = props => {
+  const generateTd = generateTdPartial(
+    firestoreSave(props.firestore, props.languages)
+  );
+
   return (
     <Wrapper>
       <Table>
@@ -26,11 +60,11 @@ const Languages = props => {
             <td>Spoken</td>
             <td>Written</td>
           </tr>
-          {props.languages.map(lang => (
-            <tr key={lang}>
-              <td>{lang.name}</td>
-              <td>{lang.spoken}</td>
-              <td>{lang.written}</td>
+          {props.languages.map((lang, i) => (
+            <tr key={i}>
+              {generateTd(lang.name, "name", i)}
+              {generateTd(lang.spoken, "spoken", i)}
+              {generateTd(lang.written, "written", i)}
             </tr>
           ))}
         </tbody>

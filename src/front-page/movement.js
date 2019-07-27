@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -16,7 +16,28 @@ const Wrapper = styled.div`
     }
   `;
 
+const firestoreSave = firestore => (bonus, bonusName, rowNum) => {
+  firestore
+    .collection("users")
+    .doc("0")
+    .collection("characters")
+    .doc("0")
+    .set(
+      {
+        movement: {
+          [bonusName]: bonus
+        }
+      },
+      { merge: true }
+    );
+};
+
 const Movement = props => {
+  const [move, setMove] = useState(props.fullMove);
+  const [manPen, setManPen] = useState(props.maneuverPen);
+
+  const save = firestoreSave(props.firestore);
+
   return (
     <Wrapper>
       <Table>
@@ -32,11 +53,25 @@ const Movement = props => {
         </thead>
         <tbody>
           <tr>
-            <td>{props.fullMove}</td>
+            <td>
+              <input
+                type="number"
+                value={move}
+                onChange={e => setMove(e.target.value)}
+                onBlur={e => save(move, "fullMove")}
+              />
+            </td>
             <td>{props.fullMove * 4}</td>
             <td>{props.fullMove * 0.8}</td>
             <td>{props.fullMove * 0.2}</td>
-            <td>-10</td>
+            <td>
+              <input
+                type="number"
+                value={manPen}
+                onChange={e => setManPen(e.target.value)}
+                onBlur={e => save(manPen, "maneuverPen")}
+              />
+            </td>
             <td>0</td>
           </tr>
         </tbody>

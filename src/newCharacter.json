@@ -4,57 +4,67 @@
     {
       "id": "",
       "class": "",
-      "experience": 0,
+      "experience": 10000,
       "mainStats": {
         "co": {
           "potential": 0,
           "temporary": 0,
-          "current": 0
+          "current": 70,
+          "otherBonus": 0
         },
         "ag": {
           "potential": 0,
           "temporary": 0,
-          "current": 0
+          "current": 80,
+          "otherBonus": 0
         },
         "sd": {
           "potential": 0,
           "temporary": 0,
-          "current": 0
+          "current": 90,
+          "otherBonus": 0
         },
         "me": {
           "potential": 0,
           "temporary": 0,
-          "current": 0
+          "current": 150,
+          "otherBonus": 0
         },
         "re": {
           "potential": 0,
           "temporary": 0,
-          "current": 0
+          "current": 30,
+          "otherBonus": 0
         },
         "st": {
           "potential": 0,
           "temporary": 0,
-          "current": 0
+          "current": 20,
+          "otherBonus": 0
         },
         "qu": {
           "potential": 0,
           "temporary": 0,
-          "current": 0
+          "current": 10,
+          "otherBonus": 0
         },
         "pr": {
           "potential": 0,
           "temporary": 0,
-          "current": 0
+          "current": 55,
+          "otherBonus": 0
         },
         "in": {
           "potential": 0,
           "temporary": 0,
-          "current": 0
+          "current": 76,
+          "otherBonus": 0
         },
         "em": {
           "potential": 0,
           "temporary": 0,
-          "current": 0
+          "current": 105,
+          "otherBonus": 0
         }
       },
       "resists": {
@@ -101,7 +111,17 @@
         "social": 0,
         "subterfuge": 0
       },
-      "languages": [],
+      "languages": [
+        { "name": "", "spoken": "", "written": "" },
+        { "name": "", "spoken": "", "written": "" },
+        { "name": "", "spoken": "", "written": "" },
+        { "name": "", "spoken": "", "written": "" },
+        { "name": "", "spoken": "", "written": "" },
+        { "name": "", "spoken": "", "written": "" },
+        { "name": "", "spoken": "", "written": "" },
+        { "name": "", "spoken": "", "written": "" },
+        { "name": "", "spoken": "", "written": "" }
+      ],
       "movement": {
         "fullMove": 60,
         "maneuverPen": 0
@@ -126,18 +146,20 @@
         "rolled": 0
       },
       "fluffStats": {
-        "name": "",
-        "race": "",
-        "residence": "",
-        "sex": "",
+        "name": "<>",
+        "race": "Dwarf",
+        "residence": "<>",
+        "sex": "<>",
         "weight": 150,
         "height": 72,
+        "primaryStat": "ag",
+        "secondaryStat": "co",
         "age": 18,
         "hand": "Right",
-        "hair": "",
-        "eyes": "",
-        "birthday": "",
-        "racialAbilities": ""
+        "hair": "<>",
+        "eyes": "<>",
+        "birthday": "<>",
+        "racialAbilities": "<>"
       }
     }
   ]

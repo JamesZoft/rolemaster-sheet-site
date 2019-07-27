@@ -1,0 +1,534 @@
+{
+  "Dwarf": {
+    "essence": 40,
+    "channeling": 0,
+    "mentalism": 40,
+    "poison": 20,
+    "disease": 15
+  },
+  "Elf - Aquatic": {
+    "essence": -5,
+    "channeling": -5,
+    "mentalism": -5,
+    "poison": 10,
+    "disease": 100
+  },
+  "Elf - Dark": {
+    "essence": -5,
+    "channeling": -5,
+    "mentalism": -5,
+    "poison": 10,
+    "disease": 100
+  },
+  "Elf - Grey": {
+    "essence": -5,
+    "channeling": -5,
+    "mentalism": -5,
+    "poison": 10,
+    "disease": 100
+  },
+  "Elf - High (ME)": {
+    "essence": -10,
+    "channeling": -10,
+    "mentalism": -10,
+    "poison": 0,
+    "disease": 50
+  },
+  "Elf - Noldor": {
+    "essence": -5,
+    "channeling": -5,
+    "mentalism": -5,
+    "poison": 10,
+    "disease": 100
+  },
+  "Elf - Sindar": {
+    "essence": -5,
+    "channeling": -5,
+    "mentalism": -5,
+    "poison": 10,
+    "disease": 100
+  },
+  "Elf - Silvan": {
+    "essence": -5,
+    "channeling": -5,
+    "mentalism": -5,
+    "poison": 10,
+    "disease": 100
+  },
+  "Elf - Teleri": {
+    "essence": -5,
+    "channeling": -5,
+    "mentalism": -5,
+    "poison": 10,
+    "disease": 100
+  },
+  "Great Man": {
+    "essence": -5,
+    "channeling": -5,
+    "mentalism": -5,
+    "poison": 40,
+    "disease": 100
+  },
+  "Half-Elf A": {
+    "essence": -5,
+    "channeling": -5,
+    "mentalism": -5,
+    "poison": 0,
+    "disease": 50
+  },
+  "Half-Elf B": {
+    "essence": -5,
+    "channeling": -5,
+    "mentalism": -5,
+    "poison": 0,
+    "disease": 50
+  },
+  "Half-Elf C": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 10,
+    "disease": 60
+  },
+  "Half-Elf D": {
+    "essence": -5,
+    "channeling": -5,
+    "mentalism": -5,
+    "poison": 0,
+    "disease": 50
+  },
+  "Half-Elf E": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 15
+  },
+  "Half-Elf F": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 15,
+    "disease": 50
+  },
+  "Half-Ogre": {
+    "essence": 5,
+    "channeling": 5,
+    "mentalism": 5,
+    "poison": 10,
+    "disease": 10
+  },
+  "Half-Orc A": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 5,
+    "disease": 10
+  },
+  "Half-Troll": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 15,
+    "disease": 10
+  },
+  "Half-Uruk": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 5
+  },
+  "High Man": {
+    "essence": -5,
+    "channeling": -5,
+    "mentalism": -5,
+    "poison": 0,
+    "disease": 0
+  },
+  "High Man - Dark Numenorean": {
+    "essence": -5,
+    "channeling": -5,
+    "mentalism": -5,
+    "poison": 0,
+    "disease": 0
+  },
+  "High Man - Dunadan": {
+    "essence": -5,
+    "channeling": -5,
+    "mentalism": -5,
+    "poison": 0,
+    "disease": 0
+  },
+  "Hobbit - Fallohide": {
+    "essence": 20,
+    "channeling": 0,
+    "mentalism": 20,
+    "poison": 20,
+    "disease": 50
+  },
+  "Hobbit - Harfoot": {
+    "essence": 50,
+    "channeling": 0,
+    "mentalism": 40,
+    "poison": 30,
+    "disease": 50
+  },
+  "Hobbit - Stoor": {
+    "essence": 50,
+    "channeling": 0,
+    "mentalism": 40,
+    "poison": 40,
+    "disease": 60
+  },
+  "Man - Chy": {
+    "essence": 0,
+    "channeling": -5,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 0
+  },
+  "Man - Common": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 0
+  },
+  "Man - Dorwinadan (CB)": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 0
+  },
+  "Man - Dorwinadan": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 5,
+    "disease": 0
+  },
+  "Man - Dunlending(CB)": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 0
+  },
+  "Man - Dunlending": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 0
+  },
+  "Man - Dusheran": {
+    "essence": 5,
+    "channeling": 5,
+    "mentalism": 5,
+    "poison": 20,
+    "disease": 20
+  },
+  "Man - Dyrian": {
+    "essence": 15,
+    "channeling": 0,
+    "mentalism": -5,
+    "poison": 40,
+    "disease": 15
+  },
+  "Man - Easterling": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 0
+  },
+  "Man - Haradan": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 0
+  },
+  "Man - Lossadan": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 0
+  },
+  "Man - Rural": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 0
+  },
+  "Man - Urban": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 0
+  },
+  "Man - Variag": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 0
+  },
+  "Mixed Man": {
+    "essence": -5,
+    "channeling": -5,
+    "mentalism": -5,
+    "poison": 0,
+    "disease": 0
+  },
+  "Mixed Man - Corsair(CB)": {
+    "essence": -5,
+    "channeling": -5,
+    "mentalism": -5,
+    "poison": 0,
+    "disease": 0
+  },
+  "Mixed Man - Corsair": {
+    "essence": -5,
+    "channeling": -5,
+    "mentalism": -5,
+    "poison": 0,
+    "disease": 0
+  },
+  "Mutant": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 30,
+    "disease": 30
+  },
+  "NorthMan - Beorning": {
+    "essence": 20,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 20,
+    "disease": 15
+  },
+  "NorthMan - Rohirrim": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 10
+  },
+  "NorthMan - Woodsman": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 0
+  },
+  "Nurniag": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 10,
+    "disease": 0
+  },
+  "Old Dark Man - Womaw": {
+    "essence": 0,
+    "channeling": 5,
+    "mentalism": 0,
+    "poison": 10,
+    "disease": 5
+  },
+  "Olog Hai": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 20,
+    "disease": 10
+  },
+  "Orc - Black Forge": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 5
+  },
+  "Orc - Black Wood": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 5
+  },
+  "Orc - Blue Nose": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 5
+  },
+  "Orc - Deep": {
+    "essence": 5,
+    "channeling": 5,
+    "mentalism": 5,
+    "poison": 10,
+    "disease": 10
+  },
+  "Orc - Greater": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 5,
+    "disease": 10
+  },
+  "Orc - Grey Mountain": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 5,
+    "disease": 10
+  },
+  "Orc - High Old": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 0
+  },
+  "Orc - Lesser": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 5
+  },
+  "Orc - Moon": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 5,
+    "disease": 10
+  },
+  "Orc - Red Eye": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 5,
+    "disease": 10
+  },
+  "Orc - Red Sand": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 5
+  },
+  "Orc - Silent Watch": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 5
+  },
+  "Orc - Tribeless": {
+    "essence": -5,
+    "channeling": -5,
+    "mentalism": -5,
+    "poison": 0,
+    "disease": 5
+  },
+  "Orc - Wolf": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 5,
+    "disease": 10
+  },
+  "Troll - Generic": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 10,
+    "disease": 10
+  },
+  "Half-Dwarves": {
+    "essence": 20,
+    "channeling": 0,
+    "mentalism": 20,
+    "poison": 15,
+    "disease": 15
+  },
+  "Umli": {
+    "essence": 20,
+    "channeling": 0,
+    "mentalism": 5,
+    "poison": 5,
+    "disease": 5
+  },
+  "Uruk Hai": {
+    "essence": 0,
+    "channeling": -5,
+    "mentalism": 0,
+    "poison": 10,
+    "disease": 20
+  },
+  "Vulmi-Shaitan mix": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 0,
+    "disease": 0
+  },
+  "Wose (CB)": {
+    "essence": 20,
+    "channeling": 0,
+    "mentalism": 20,
+    "poison": 15,
+    "disease": 15
+  },
+  "Wose": {
+    "essence": 10,
+    "channeling": 10,
+    "mentalism": 10,
+    "poison": 10,
+    "disease": 10
+  },
+  "Centaur": {
+    "essence": -5,
+    "channeling": -5,
+    "mentalism": -5,
+    "poison": 10,
+    "disease": 15
+  },
+  "Hira'Razhir": {
+    "essence": -5,
+    "channeling": -5,
+    "mentalism": -5,
+    "poison": -10,
+    "disease": -20
+  },
+  "New Race Idiyva": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 5,
+    "disease": 5
+  },
+  "New Race Sohleugir": {
+    "essence": 5,
+    "channeling": 5,
+    "mentalism": 5,
+    "poison": 10,
+    "disease": 10
+  },
+  "Stoi'isslythi": {
+    "essence": 0,
+    "channeling": 0,
+    "mentalism": 0,
+    "poison": 50,
+    "disease": -5
+  }
+}

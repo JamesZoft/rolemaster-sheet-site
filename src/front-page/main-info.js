@@ -1,53 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
     display: flex;
   `,
-  Keys = styled.div`
-    flex: 1;
-    & span {
-      display: block;
-      border: 1px solid lightgrey;
-    }
+  Table = styled.table`
+    width: 100%;
   `,
-  Values = styled.div`
-    flex: 1;
-    span {
-      display: block;
-      border: 1px solid lightgrey;
-    }
+  Input = styled.input`
+    width: 99%;
   `;
 
+const firestoreSave = firestore => (bonus, bonusName) => {
+  if (typeof bonus === "number") {
+    bonus = "" + bonus;
+  }
+  firestore
+    .collection("users")
+    .doc("0")
+    .collection("characters")
+    .doc("0")
+    .set(
+      {
+        fluffStats: {
+          [bonusName]: bonus
+        }
+      },
+      { merge: true }
+    );
+};
+
+const generateRowFunc = save => (label, initial) => {
+  const [value, setValue] = useState(initial);
+  return (
+    <tr>
+      <td>{label}</td>
+      <td>
+        <Input
+          value={value}
+          onChange={e => setValue(e.target.value)}
+          onBlur={e => save(value, label.toLowerCase())}
+        />
+      </td>
+    </tr>
+  );
+};
+
 const MainInfo = props => {
+  const generateRow = generateRowFunc(firestoreSave(props.firestore));
+
   return (
     <Wrapper id="wrapper" className={props.className}>
-      <Keys id="keys">
-        <span>Name</span>
-        <span>Race</span>
-        <span>Residence</span>
-        <span>Sex</span>
-        <span>Weight</span>
-        <span>Height</span>
-        <span>Age</span>
-        <span>Hand</span>
-        <span>Hair</span>
-        <span>Eyes</span>
-        <span>Birthday</span>
-      </Keys>
-      <Values id="values">
-        <span>{props.name}</span>
-        <span>{props.race}</span>
-        <span>{props.residence}</span>
-        <span>{props.sex}</span>
-        <span>{props.weight}</span>
-        <span>{props.height}</span>
-        <span>{props.age}</span>
-        <span>{props.hand}</span>
-        <span>{props.hair}</span>
-        <span>{props.eyes}</span>
-        <span>{props.birthday}</span>
-      </Values>
+      <Table>
+        <tbody>
+          {generateRow("Name", props.name)}
+          {generateRow("Race", props.race)}
+          {generateRow("Residence", props.residence)}
+          {generateRow("Sex", props.sex)}
+          {generateRow("Weight", props.weight)}
+          {generateRow("Height", props.height)}
+          {generateRow("Age", props.age)}
+          {generateRow("Hand", props.hand)}
+          {generateRow("Hair", props.hair)}
+          {generateRow("Eyes", props.eyes)}
+          {generateRow("Birthday", props.birthday)}
+        </tbody>
+      </Table>
     </Wrapper>
   );
 };

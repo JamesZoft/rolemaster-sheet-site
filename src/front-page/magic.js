@@ -9,11 +9,11 @@ const Wrapper = styled.div`
   }
 `;
 
-const calculateStatValue = (primaryStatValue, pr, realm) => {
+const calculateStatValue = (primaryStatValue, defaultRealmStat, realm) => {
   if (realm > "") {
     return primaryStatValue;
   }
-  return pr;
+  return defaultRealmStat;
 };
 
 const calculatePointsPerLevel = statValue => {
@@ -29,14 +29,29 @@ const calculatePointsPerLevel = statValue => {
   return 9;
 };
 
+const defaultRealmStatMap = {
+  mentalism: "pr",
+  channeling: "in",
+  essence: "em"
+};
+
 const Magic = props => {
+  const [level, setLevel] = useState(
+    props.calculateLevelFromExp(props.experience)
+  );
+
+  const defaultRealmStat =
+    props.stats[defaultRealmStatMap[props.realm.toLowerCase()]].current;
+
   const magicStatValue = calculateStatValue(
-    props.primaryStatValue,
-    props.pr,
+    props.stats[props.primaryStat.toLowerCase()].current,
+    defaultRealmStat,
     props.realm
   );
+
   const pointsPerLevel = calculatePointsPerLevel(magicStatValue);
   const [mult, setMult] = useState(props.mult);
+
   return (
     <Wrapper>
       <table>
@@ -53,17 +68,13 @@ const Magic = props => {
         <tbody>
           <tr>
             <td>{props.realm}</td>
-            <td>
-              {magicStatValue} - this formula needs checking in excel - it looks
-              like its supposed to look up the current PR value but it doesnt
-              seem to
-            </td>
+            <td>{magicStatValue}</td>
             <td>{pointsPerLevel}</td>
-            <td>{pointsPerLevel * props.level}</td>
+            <td>{pointsPerLevel * level}</td>
             <td>
               <input type="number" value={mult} onChange={setMult} />
             </td>
-            <td>{pointsPerLevel * props.level * mult}</td>
+            <td>{pointsPerLevel * level * mult}</td>
           </tr>
         </tbody>
       </table>

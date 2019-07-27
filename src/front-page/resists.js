@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import racialResists from "./racialResists.json";
 
 const Table = styled.table`
   border-collapse: collapse;
@@ -9,7 +10,69 @@ const Table = styled.table`
   }
 `;
 
+const firestoreSave = (firestore, bonusType) => (bonus, bonusName) => {
+  if (typeof bonus === "string") {
+    bonus = parseInt(bonus);
+  }
+  firestore
+    .collection("users")
+    .doc("0")
+    .collection("characters")
+    .doc("0")
+    .set(
+      {
+        resists: {
+          [bonusName]: {
+            [bonusType]: bonus
+          }
+        }
+      },
+      { merge: true }
+    );
+};
+
+const generateCurrentRowPartial = save => (initial, label) => {
+  const [stat, setStat] = useState(initial);
+  return (
+    <td>
+      <input
+        value={stat}
+        onChange={e => setStat(e.target.value)}
+        onBlur={e => save(stat, label)}
+      />
+    </td>
+  );
+};
+
+const generateRow = (resists, resistName, stat, firestore, racials) => {
+  const miscSave = firestoreSave(firestore, "misc");
+  const itemSave = firestoreSave(firestore, "item");
+
+  return (
+    <tr>
+      <td>Disease</td>
+      <td>CO</td>
+      <td>{stat.statBonus}</td>
+      {generateCurrentRowPartial(miscSave)(
+        resists[resistName].misc,
+        resistName
+      )}
+      {generateCurrentRowPartial(itemSave)(
+        resists[resistName].item,
+        resistName
+      )}
+      <td>{racials[resistName]}</td>
+      <th>
+        {Object.values(resists[resistName]).reduce((a, b) => a + b) +
+          stat.statBonus}
+      </th>
+    </tr>
+  );
+};
+
 const Resists = props => {
+  const racials = racialResists[props.race];
+
   return (
     <Table>
       <tbody>
@@ -20,80 +83,122 @@ const Resists = props => {
           <td>Misc</td>
           <td>Item</td>
           <td>Race</td>
-          <td>Total</td>
+          <th>Total</th>
         </tr>
-        <tr>
+        {generateRow(
+          props.resists,
+          "disease",
+          props.stats.co,
+          props.firestore,
+          racials
+        )}
+        {generateRow(
+          props.resists,
+          "poison",
+          props.stats.co,
+          props.firestore,
+          racials
+        )}
+        {generateRow(
+          props.resists,
+          "terrorFear",
+          props.stats.sd,
+          props.firestore,
+          racials
+        )}
+        {generateRow(
+          props.resists,
+          "essence",
+          props.stats.em,
+          props.firestore,
+          racials
+        )}
+        {generateRow(
+          props.resists,
+          "channeling",
+          props.stats.in,
+          props.firestore,
+          racials
+        )}
+        {generateRow(
+          props.resists,
+          "mentalism",
+          props.stats.pr,
+          props.firestore,
+          racials
+        )}
+        {/* <tr>
           <td>Disease</td>
           <td>CO</td>
           <td>{props.stats.co.statBonus}</td>
-          <td>{props.resists.disease.misc}</td>
-          <td>{props.resists.disease.item}</td>
-          <td>{props.resists.disease.race}</td>
-          <td>
+          {generateCurrentRowMisc(props.resists.disease.misc, "disease")}
+          {generateCurrentRowItem(props.resists.disease.item, "disease")}
+          <td>{racials.disease}</td>
+          <th>
             {Object.values(props.resists.disease).reduce((a, b) => a + b) +
               props.stats.co.statBonus}
-          </td>
-        </tr>
-        <tr>
-          <td />
+          </th>
+        </tr> */}
+        {/* <tr>
+          <td>Poison</td>
           <td>CO</td>
           <td>{props.stats.co.statBonus}</td>
-          <td>{props.resists.poison.misc}</td>
-          <td>{props.resists.poison.item}</td>
-          <td>{props.resists.poison.race}</td>
-          <td>
+          {generateCurrentRowMisc(props.resists.poison.misc, "poison")}
+          {generateCurrentRowItem(props.resists.poison.item, "poison")}
+          <td>{racials.poison}</td>
+          <th>
             {Object.values(props.resists.poison).reduce((a, b) => a + b) +
               props.stats.co.statBonus}
-          </td>
+          </th>
         </tr>
         <tr>
-          <td />
+          <td>Terror/Fear</td>
           <td>SD</td>
           <td>{props.stats.sd.statBonus}</td>
-          <td>{props.resists.terrorFear.misc}</td>
-          <td>{props.resists.terrorFear.item}</td>
-          <td>{props.resists.terrorFear.race}</td>
-          <td>
+          {generateCurrentRowMisc(props.resists.terrorFear.misc, "terrorFear")}
+          {generateCurrentRowItem(props.resists.terrorFear.item, "terrorFear")}
+          <td>{racials.terrorFear}</td>
+          <th>
             {Object.values(props.resists.terrorFear).reduce((a, b) => a + b) +
               props.stats.sd.statBonus}
-          </td>
+          </th>
         </tr>
         <tr>
-          <td />
+          <td>Essence</td>
           <td>EM</td>
           <td>{props.stats.em.statBonus}</td>
-          <td>{props.resists.essence.misc}</td>
-          <td>{props.resists.essence.item}</td>
-          <td>{props.resists.essence.race}</td>
-          <td>
+          {generateCurrentRowMisc(props.resists.essence.misc, "essence")}
+          {generateCurrentRowItem(props.resists.essence.item, "essence")}
+          <td>{racials.essence}</td>
+          <th>
             {Object.values(props.resists.essence).reduce((a, b) => a + b) +
               props.stats.em.statBonus}
-          </td>
+          </th>
         </tr>
         <tr>
-          <td />
+          <td>Channeling</td>
           <td>IN</td>
           <td>{props.stats.in.statBonus}</td>
-          <td>{props.resists.channeling.misc}</td>
-          <td>{props.resists.channeling.item}</td>
-          <td>{props.resists.channeling.race}</td>
-          <td>
+          {generateCurrentRowMisc(props.resists.channeling.misc, "channeling")}
+          {generateCurrentRowItem(props.resists.channeling.item, "channeling")}
+          <td>{racials.channeling}</td>
+          <th>
             {Object.values(props.resists.channeling).reduce((a, b) => a + b) +
               props.stats.in.statBonus}
-          </td>
+          </th>
         </tr>
         <tr>
-          <td />
+          <td>Mentalism</td>
           <td>PR</td>
           <td>{props.stats.pr.statBonus}</td>
-          <td>{props.resists.mentalism.misc}</td>
-          <td>{props.resists.mentalism.item}</td>
-          <td>{props.resists.mentalism.race}</td>
-          <td>
+          {generateCurrentRowMisc(props.resists.mentalism.misc, "mentalism")}
+          {generateCurrentRowItem(props.resists.mentalism.item, "mentalism")}
+          <td>{racials.mentalism}</td>
+          <th>
             {Object.values(props.resists.mentalism).reduce((a, b) => a + b) +
               props.stats.pr.statBonus}
-          </td>
-        </tr>
+          </th>
+        </tr> */}
       </tbody>
     </Table>
   );
