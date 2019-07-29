@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import racials from "./racialAbilities.json";
+import { xpLevelMap } from "../level";
 
 const ClassInfoWrapper = styled.div`
     flex: 2;
@@ -41,7 +42,7 @@ const firestoreSave = firestore => (bonus, bonusName) => {
     );
 };
 
-const calculateExpNeeded = (xpLevelMap, level) => {
+const calculateExpNeeded = level => {
   const xpForLevels = Object.keys(xpLevelMap).filter(
     val => xpLevelMap[val] === level || xpLevelMap[val] === level + 1
   );
@@ -55,7 +56,7 @@ const ClassExp = props => {
   const [exp, setExp] = useState(props.experience);
   const [level, setLevel] = useState(props.calculateLevelFromExp(exp));
 
-  const xpNeeded = calculateExpNeeded(props.xpLevelMap, level) + "";
+  const xpNeeded = calculateExpNeeded(level) + "";
   const racialAbilities = racials[props.race];
 
   const [charClass, setCharClass] = useState(props.charClass);

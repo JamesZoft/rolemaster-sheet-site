@@ -110,14 +110,18 @@ service cloud.firestore {
 
 */
 
-  const LoggedInBlock = user ? (
-    <div>
-      <span>Current User: {user.email}</span>
-      <span style={{ float: "right" }}>Current User ID: {user.uid}</span>
-      <button onClick={logout}>Log out</button>
+  const LoggedInBlock = (
+    <div style={{ marginBottom: 20 }}>
+      {user ? (
+        <Fragment>
+          <span>Current User: {user.email}</span>
+          <span style={{ float: "right" }}>Current User ID: {user.uid}</span>
+          <button onClick={logout}>Log out</button>
+        </Fragment>
+      ) : (
+        <button onClick={login}>Log in</button>
+      )}
     </div>
-  ) : (
-    <button onClick={login}>Log in</button>
   );
 
   // let userDoc = app
@@ -137,6 +141,11 @@ service cloud.firestore {
       <FrontPage firestore={app.firestore()} />
     </Wrapper>
   );
+  const Skills = (
+    <Wrapper>
+      <SkillsPage firestore={app.firestore()} />
+    </Wrapper>
+  );
 
   return (
     <Fragment>
@@ -152,7 +161,7 @@ service cloud.firestore {
         {error && ErrorBlock}
         {LoggedInBlock}
         <Route exact path="/" component={() => Front} />
-        <Route path="skills" component={() => SkillsPage} />
+        <Route exact path="/skills" component={() => Skills} />
         <Footer>
           <span>
             <Link to="/">[Front Sheet]</Link>

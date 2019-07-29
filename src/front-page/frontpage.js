@@ -12,8 +12,8 @@ import Stats from "./stats";
 import styled from "styled-components";
 import Health from "./health";
 import raceStatBonuses from "./raceStatBonuses.json";
-import { firebase } from "firebase/app";
-import { useCollection, useDocument } from "react-firebase-hooks/firestore";
+import { useDocument } from "react-firebase-hooks/firestore";
+import calculateLevelFromExp from "../level";
 
 const Section = styled.div`
     display: flex;
@@ -28,40 +28,6 @@ const Section = styled.div`
   ColSection = styled(Section)`
     flex-direction: column;
   `;
-
-const xpLevelMap = {
-  0: 0,
-  10000: 1,
-  20000: 2,
-  30000: 3,
-  40000: 4,
-  50000: 5,
-  70000: 6,
-  90000: 7,
-  110000: 8,
-  130000: 9,
-  150000: 10,
-  180000: 11,
-  210000: 12,
-  240000: 13,
-  270000: 14,
-  300000: 15,
-  340000: 16,
-  380000: 17,
-  420000: 18,
-  460000: 19,
-  500000: 20,
-  550000: 21,
-  600000: 22,
-  650000: 23,
-  700000: 24,
-  750000: 25,
-  800000: 26,
-  850000: 27,
-  900000: 28,
-  950000: 29,
-  1000000: 30
-};
 
 const statBonusMap = {
   0: -30,
@@ -94,14 +60,6 @@ const statBonusMap = {
   112: 85
 };
 
-const calculateLevelFromExpPartial = xpLevelMap => exp => {
-  const levelsUnderXp = Object.keys(xpLevelMap).filter(el => {
-    return el <= exp;
-  });
-  levelsUnderXp.pop();
-  return xpLevelMap[levelsUnderXp[levelsUnderXp.length - 1]] || 0;
-};
-
 const calculateStatBonusFromStat = stat => {
   const statBonusMapKeys = Object.keys(statBonusMap);
   if (stat > statBonusMapKeys[statBonusMapKeys.length - 1]) {
@@ -122,13 +80,12 @@ const FrontPage = props => {
       snapshotListenOptions: { includeMetadataChanges: true }
     }
   );
-  const a = 1;
+
   if (!value) {
     return <Fragment>{loading && <div>Loading data...</div>}</Fragment>;
   } else {
     let data = value.data();
     const racialStatBonuses = raceStatBonuses[data.fluffStats.race];
-    const calculateLevelFromExp = calculateLevelFromExpPartial(xpLevelMap);
 
     Object.keys(data.mainStats).forEach((stat, i) => {
       data.mainStats[stat].statBonus = calculateStatBonusFromStat(
@@ -145,7 +102,6 @@ const FrontPage = props => {
               calculateLevelFromExp={calculateLevelFromExp}
               charClass={data.charClass}
               experience={data.experience}
-              xpLevelMap={xpLevelMap}
               race={data.fluffStats.race}
               firestore={props.firestore}
             />

@@ -111,6 +111,7 @@
         "social": 0,
         "subterfuge": 0
       },
+      "skills": [{}],
       "languages": [
         { "name": "", "spoken": "", "written": "" },
         { "name": "", "spoken": "", "written": "" },
