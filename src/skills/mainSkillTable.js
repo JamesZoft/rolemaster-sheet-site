@@ -2,9 +2,15 @@ import React, { useState } from "react";
 import skills from "./skills.json";
 import calculateLevelFromExp from "../level";
 
-const firestoreSave = (firestore, skills) => (bonus, bonusName, rowNum) => {
+const firestoreSave = (firestore, skills, isSimilars) => (
+  bonus,
+  bonusName,
+  rowNum
+) => {
   const skillRow = skills[rowNum];
   skillRow[bonusName] = bonus;
+
+  const propToSaveAgainst = isSimilars ? "similars" : "skills";
 
   firestore
     .collection("users")
@@ -13,7 +19,7 @@ const firestoreSave = (firestore, skills) => (bonus, bonusName, rowNum) => {
     .doc("0")
     .set(
       {
-        skills: skills
+        [propToSaveAgainst]: skills
       },
       { merge: true }
     );
@@ -40,7 +46,10 @@ const calculateGivingFromRanks = ranks => {
   return giving + ranksLeft;
 };
 
-const generateSkillRowPartial = (data, level, save, skills) => (skill, i) => {
+const generateSkillRowPartial = (data, level, save, skills, isSimilars) => (
+  skill,
+  i
+) => {
   const [item, setItem] = useState(skill.item);
   const [misc, setMisc] = useState(skill.misc);
   const [notes, setNotes] = useState(skill.notes);
@@ -58,21 +67,20 @@ const generateSkillRowPartial = (data, level, save, skills) => (skill, i) => {
   );
   let total = giving + levelBonus + statBonus + item + misc;
 
-  const onChangeItem = (item, i) => {
-    setItem(item);
-    save(parseInt(item), "item", i);
-  };
-
   return (
     <tr key={i}>
       <td>
-        <input
-          type="text"
-          id={skill + "Name"}
-          value={skillName}
-          onChange={e => setSkillname(e.target.value)}
-          onBlur={e => save(e.target.value, "name", i)}
-        />
+        {isSimilars ? (
+          skillName
+        ) : (
+          <input
+            type="text"
+            id={skill + "Name"}
+            value={skillName}
+            onChange={e => setSkillname(e.target.value)}
+            onBlur={e => save(e.target.value, "name", i)}
+          />
+        )}
       </td>
       <td>{skills[skill.name].skillArea}</td>
       <td>{skills[skill.name].stat1}</td>
@@ -86,9 +94,8 @@ const generateSkillRowPartial = (data, level, save, skills) => (skill, i) => {
           type="number"
           id={skill + "Item"}
           value={item}
-          onChange={e => onChangeItem(e.target.value, i)}
-          //   onChange={e => setItem(e.target.value)}
-          //   onBlur={e => save(parseInt(e.target.value), "item", i)}
+          onChange={e => setItem(parseInt(e.target.value))}
+          onBlur={e => save(parseInt(e.target.value), "item", i)}
         />
       </td>
       <td>
@@ -96,7 +103,7 @@ const generateSkillRowPartial = (data, level, save, skills) => (skill, i) => {
           type="number"
           id={skill + "Misc"}
           value={misc}
-          onChange={e => setMisc(e.target.value)}
+          onChange={e => setMisc(parseInt(e.target.value))}
           onBlur={e => save(parseInt(e.target.value), "misc", i)}
         />
       </td>
@@ -117,12 +124,17 @@ const generateSkillRowPartial = (data, level, save, skills) => (skill, i) => {
 
 const MainSkillTable = props => {
   const level = calculateLevelFromExp(props.data.experience);
-  const save = firestoreSave(props.firestore, props.data.skills);
+  const save = firestoreSave(
+    props.firestore,
+    props.data.skills,
+    props.isSimilars
+  );
   const generateSkillRow = generateSkillRowPartial(
     props.data,
     level,
     save,
-    skills
+    skills,
+    props.isSimilars
   );
 
   return (
