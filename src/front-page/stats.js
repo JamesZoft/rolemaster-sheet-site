@@ -61,12 +61,12 @@ const generateCurrentRowPartial = save => (initial, label) => {
 
 const Stats = props => {
   const dps = {
-    co: calculateDPsFromStat("co", props.co.current),
-    ag: calculateDPsFromStat("ag", props.ag.current),
-    sd: calculateDPsFromStat("ag", props.sd.current),
-    me: calculateDPsFromStat("me", props.me.current),
-    re: calculateDPsFromStat("re", props.re.current),
-    st: calculateDPsFromStat("st", props.st.current)
+    co: props.co.dps,
+    ag: props.ag.dps,
+    sd: props.sd.dps,
+    me: props.me.dps,
+    re: props.re.dps,
+    pr: props.pr.dps
   };
 
   const statArray = [

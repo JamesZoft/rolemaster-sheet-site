@@ -6,12 +6,14 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
-
+import { useDocument } from "react-firebase-hooks/firestore";
 import * as svc from "./serviceAccountKey.json";
 import KeyboardEventHandler from "react-keyboard-event-handler";
 import newChar from "./newCharacter.json";
 import styled from "styled-components";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import DevSheet from "./dev-sheet/devsheet";
+import newc from "./newchar.json";
 
 const Footer = styled.div`
     span {
@@ -131,48 +133,67 @@ service cloud.firestore {
   // userDoc.set({
   //   email: "blah"
   // });
+  // const a = newc;
   // userDoc
   //   .collection("characters")
   //   .doc("0")
-  //   .set(newChar.characters[0]);
+  //   .set(a);
 
-  const Front = (
-    <Wrapper>
-      <FrontPage firestore={app.firestore()} />
-    </Wrapper>
+  const [value, loading, collErr] = useDocument(
+    app
+      .firestore()
+      .collection("users")
+      .doc("0")
+      .collection("characters")
+      .doc("0"),
+    {
+      snapshotListenOptions: { includeMetadataChanges: true }
+    }
   );
-  const Skills = (
-    <Wrapper>
-      <SkillsPage firestore={app.firestore()} />
-    </Wrapper>
-  );
 
-  return (
-    <Fragment>
-      <Router>
-        {/* {value &&
-        Object.keys(value).map((k, i) => (
-          <div key={i}>{JSON.stringify(k)}</div>
-        ))} */}
-
-        {/* {value && JSON.stringify(value.data())} */}
-
-        {InitialisingBlock}
-        {error && ErrorBlock}
-        {LoggedInBlock}
-        <Route exact path="/" component={() => Front} />
-        <Route exact path="/skills" component={() => Skills} />
-        <Footer>
-          <span>
-            <Link to="/">[Front Sheet]</Link>
-          </span>
-          <span>
-            <Link to="skills">[Skill Sheet]</Link>
-          </span>
-        </Footer>
-      </Router>
-    </Fragment>
-  );
+  if (!value) {
+    return <Fragment>{loading && <div>Loading data...</div>}</Fragment>;
+  } else {
+    const charData = value.data();
+    const Front = (
+      <Wrapper>
+        <FrontPage data={charData} firestore={app.firestore()} />
+      </Wrapper>
+    );
+    const Skills = (
+      <Wrapper>
+        <SkillsPage data={charData} firestore={app.firestore()} />
+      </Wrapper>
+    );
+    const Dev = (
+      <Wrapper>
+        <DevSheet data={charData} firestore={app.firestore()} />
+      </Wrapper>
+    );
+    return (
+      <Fragment>
+        <Router>
+          {InitialisingBlock}
+          {error && ErrorBlock}
+          {LoggedInBlock}
+          <Route exact path="/" component={() => Front} />
+          <Route exact path="/skills" component={() => Skills} />
+          <Route exact path="/devsheet" component={() => Dev} />
+          <Footer>
+            <span>
+              <Link to="/">[Front Sheet]</Link>
+            </span>
+            <span>
+              <Link to="skills">[Skill Sheet]</Link>
+            </span>
+            <span>
+              <Link to="devsheet">[Dev Sheet]</Link>
+            </span>
+          </Footer>
+        </Router>
+      </Fragment>
+    );
+  }
 }
 
 export default App;

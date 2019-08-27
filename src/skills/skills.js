@@ -1,33 +1,56 @@
-import React, { Fragment } from "react";
-import { useDocument } from "react-firebase-hooks/firestore";
+import React, { Fragment, useState } from "react";
+
 import MainSkillTable from "./mainSkillTable";
 import SimilarsTable from "./similarsTable";
+import styled from "styled-components";
+
+const firestoreSave = firestore => notes => {
+  firestore
+    .collection("users")
+    .doc("0")
+    .collection("characters")
+    .doc("0")
+    .set(
+      {
+        skillNotes: notes
+      },
+      { merge: true }
+    );
+};
+
+const Textarea = styled.textarea`
+    min-width: 95%;
+    min-height: 10vh;
+    margin: 10px;
+    flex: 1;
+  `,
+  Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  `,
+  Tables = styled.div`
+    flex: 7;
+  `;
 
 const Skills = props => {
-  const [value, loading, collErr] = useDocument(
-    props.firestore
-      .collection("users")
-      .doc("0")
-      .collection("characters")
-      .doc("0"),
-    {
-      snapshotListenOptions: { includeMetadataChanges: true }
-    }
-  );
+  const [notes, setNotes] = useState(props.data.skillNotes);
+  const save = firestoreSave(props.firestore);
 
-  if (!value) {
-    return <div>Loading...</div>;
-  } else {
-    return (
-      <Fragment>
-        <MainSkillTable data={value.data()} firestore={props.firestore} />
-        <br />
-        <br />
-        <br />
-        <SimilarsTable data={value.data()} firestore={props.firestore} />
-      </Fragment>
-    );
-  }
+  return (
+    <Container>
+      <Tables>
+        <MainSkillTable data={props.data} firestore={props.firestore} />
+        <SimilarsTable data={props.data} firestore={props.firestore} />
+      </Tables>
+
+      <Textarea
+        value={notes}
+        onChange={e => setNotes(e.target.value)}
+        onBlur={() => save(notes)}
+      ></Textarea>
+    </Container>
+  );
 };
 
 export default Skills;

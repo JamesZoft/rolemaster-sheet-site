@@ -60,6 +60,36 @@ const statBonusMap = {
   112: 85
 };
 
+const statDevPointsMap = {
+  "1": 1,
+  "2": 1,
+  "3": 1,
+  "5": 2,
+  "10": 2,
+  "15": 3,
+  "25": 4,
+  "40": 5,
+  "60": 6,
+  "75": 7,
+  "85": 8,
+  "90": 8,
+  "95": 9,
+  "98": 9,
+  "100": 10,
+  "101": 10,
+  "102": 11,
+  "103": 11,
+  "104": 12,
+  "105": 12,
+  "106": 13,
+  "107": 13,
+  "108": 14,
+  "109": 14,
+  "110": 15,
+  "111": 15,
+  "112": 16
+};
+
 const calculateStatBonusFromStat = stat => {
   const statBonusMapKeys = Object.keys(statBonusMap);
   if (stat > statBonusMapKeys[statBonusMapKeys.length - 1]) {
@@ -69,100 +99,104 @@ const calculateStatBonusFromStat = stat => {
   return statBonusMap[levelsUnderStat[levelsUnderStat.length - 1]];
 };
 
-const FrontPage = props => {
-  const [value, loading, collErr] = useDocument(
-    props.firestore
-      .collection("users")
-      .doc("0")
-      .collection("characters")
-      .doc("0"),
-    {
-      snapshotListenOptions: { includeMetadataChanges: true }
-    }
-  );
-
-  if (!value) {
-    return <Fragment>{loading && <div>Loading data...</div>}</Fragment>;
-  } else {
-    let data = value.data();
-    const racialStatBonuses = raceStatBonuses[data.fluffStats.race];
-
-    Object.keys(data.mainStats).forEach((stat, i) => {
-      data.mainStats[stat].statBonus = calculateStatBonusFromStat(
-        data.mainStats[stat].current
-      );
-      data.mainStats[stat].racialBonus = racialStatBonuses[i];
-    });
-    return (
-      <Fragment>
-        <Fragment>
-          <Section>
-            <MainInfo {...data.fluffStats} firestore={props.firestore} />
-            <ClassExp
-              calculateLevelFromExp={calculateLevelFromExp}
-              charClass={data.charClass}
-              experience={data.experience}
-              race={data.fluffStats.race}
-              firestore={props.firestore}
-            />
-          </Section>
-          <Section>
-            <Stats {...data.mainStats} firestore={props.firestore} />
-          </Section>
-          <Section>
-            <Resists
-              stats={data.mainStats}
-              resists={data.resists}
-              race={data.fluffStats.race}
-              firestore={props.firestore}
-            />
-            <Languages languages={data.languages} firestore={props.firestore} />
-          </Section>
-          <Section>
-            <SkillAreas
-              calculateLevelFromExp={calculateLevelFromExp}
-              firestore={props.firestore}
-              experience={data.experience}
-              {...data.skillAreas}
-            />
-            <ColSection>
-              <PrimarySecondaryRealm
-                primaryStat={data.fluffStats.primaryStat}
-                secondaryStat={data.fluffStats.secondaryStat}
-                realm={data.fluffStats.realm}
-              />
-              <Movement {...data.movement} firestore={props.firestore} />
-              <Defenses
-                firestore={props.firestore}
-                quBonus={data.mainStats.qu.statBonus}
-                defenses={data.defenses}
-              />
-              <Magic
-                calculateLevelFromExp={calculateLevelFromExp}
-                mult={1}
-                stats={data.mainStats}
-                primaryStat={data.fluffStats.primaryStat}
-                realm="essence"
-                experience={data.experience}
-                {...data.magic}
-              />
-            </ColSection>
-          </Section>
-          <Section>
-            <Health
-              rolled={data.health.rolled}
-              firestore={props.firestore}
-              race="Dwarf"
-              bodyDevRanks={5}
-              con={data.mainStats.co.current}
-              bodySkill={data.skillAreas.body}
-              conBonus={10}
-            />
-          </Section>
-        </Fragment>
-      </Fragment>
-    );
+const calculateDPsFromStat = stat => {
+  const statBonusMapKeys = Object.keys(statDevPointsMap);
+  if (stat > statBonusMapKeys[statBonusMapKeys.length - 1]) {
+    return 16;
   }
+  const levelsUnderStat = Object.keys(statDevPointsMap).filter(
+    el => el <= stat
+  );
+  return statDevPointsMap[levelsUnderStat[levelsUnderStat.length - 1]];
+};
+
+const FrontPage = props => {
+  const data = props.data;
+
+  const racialStatBonuses = raceStatBonuses[data.fluffStats.race];
+
+  Object.keys(data.mainStats).forEach((stat, i) => {
+    data.mainStats[stat].statBonus = calculateStatBonusFromStat(
+      data.mainStats[stat].current
+    );
+    data.mainStats[stat].racialBonus = racialStatBonuses[i];
+  });
+
+  ["co", "ag", "sd", "me", "re", "pr"].forEach((stat, i) => {
+    data.mainStats[stat].dps = calculateDPsFromStat(
+      data.mainStats[stat].current
+    );
+  });
+
+  return (
+    <Fragment>
+      <Fragment>
+        <Section>
+          <MainInfo {...data.fluffStats} firestore={props.firestore} />
+          <ClassExp
+            calculateLevelFromExp={calculateLevelFromExp}
+            charClass={data.charClass}
+            experience={data.experience}
+            race={data.fluffStats.race}
+            firestore={props.firestore}
+          />
+        </Section>
+        <Section>
+          <Stats {...data.mainStats} firestore={props.firestore} />
+        </Section>
+        <Section>
+          <Resists
+            stats={data.mainStats}
+            resists={data.resists}
+            race={data.fluffStats.race}
+            firestore={props.firestore}
+          />
+          <Languages languages={data.languages} firestore={props.firestore} />
+        </Section>
+        <Section>
+          <SkillAreas
+            calculateLevelFromExp={calculateLevelFromExp}
+            firestore={props.firestore}
+            experience={data.experience}
+            {...data.skillAreas}
+          />
+          <ColSection>
+            <PrimarySecondaryRealm
+              primaryStat={data.fluffStats.primaryStat}
+              secondaryStat={data.fluffStats.secondaryStat}
+              realm={data.fluffStats.realm}
+            />
+            <Movement {...data.movement} firestore={props.firestore} />
+            <Defenses
+              firestore={props.firestore}
+              quBonus={data.mainStats.qu.statBonus}
+              defenses={data.defenses}
+            />
+            <Magic
+              calculateLevelFromExp={calculateLevelFromExp}
+              mult={1}
+              stats={data.mainStats}
+              primaryStat={data.fluffStats.primaryStat}
+              realm="essence"
+              experience={data.experience}
+              {...data.magic}
+            />
+          </ColSection>
+        </Section>
+        <Section>
+          <Health
+            rolled={data.health.rolled}
+            firestore={props.firestore}
+            race="Dwarf"
+            bodyDevRanks={5}
+            con={data.mainStats.co.current}
+            bodySkill={data.skillAreas.body}
+            conBonus={10}
+          />
+        </Section>
+      </Fragment>
+    </Fragment>
+  );
 };
 
 export default FrontPage;

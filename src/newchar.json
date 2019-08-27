@@ -1,0 +1,148 @@
+{
+  "charClass": "Fighter",
+  "defenses": [
+    {
+      "at": "2",
+      "mode": "",
+      "otherBonus": 0,
+      "shieldBonus": 0,
+      "shieldType": "Tower"
+    }
+  ],
+  "experience": "420000",
+  "fluffStats": {
+    "age": "18",
+    "birthday": "<>",
+    "eyes": "<>",
+    "hair": "<>",
+    "hand": "Right",
+    "height": "72",
+    "name": "<>sdfqwd",
+    "primaryStat": "ag",
+    "race": "Dwarf",
+    "racialAbilities": "<>",
+    "residence": "3g334",
+    "secondaryStat": "co",
+    "sex": "<>",
+    "weight": "150"
+  },
+  "health": { "rolled": 0 },
+  "id": "",
+  "languages": [
+    { "name": "Common", "spoken": 8, "written": 8 },
+    { "name": "qwd", "spoken": "", "written": "" },
+    { "name": "", "spoken": "", "written": "" },
+    { "name": "", "spoken": "", "written": "" },
+    { "name": "", "spoken": "", "written": "" }
+  ],
+  "magic": [{ "mult": 1, "ptsPerLvl": 0, "realm": "Essence" }],
+  "mainStats": {
+    "ag": {
+      "current": 80,
+      "otherBonus": 0,
+      "potential": 0,
+      "temporary": 0
+    },
+    "co": {
+      "current": 80,
+      "otherBonus": 0,
+      "potential": 80,
+      "temporary": 70
+    },
+    "em": {
+      "current": 105,
+      "otherBonus": 0,
+      "potential": 0,
+      "temporary": 0
+    },
+    "in": {
+      "current": 76,
+      "otherBonus": 0,
+      "potential": 0,
+      "temporary": 0
+    },
+    "me": {
+      "current": 150,
+      "otherBonus": 0,
+      "potential": 0,
+      "temporary": 0
+    },
+    "pr": {
+      "current": 55,
+      "otherBonus": 0,
+      "potential": 0,
+      "temporary": 0
+    },
+    "qu": {
+      "current": 10,
+      "otherBonus": 0,
+      "potential": 0,
+      "temporary": 0
+    },
+    "re": {
+      "current": 30,
+      "otherBonus": 0,
+      "potential": 0,
+      "temporary": 0
+    },
+    "sd": {
+      "current": 90,
+      "otherBonus": 0,
+      "potential": 0,
+      "temporary": 0
+    },
+    "st": {
+      "current": 20,
+      "otherBonus": 0,
+      "potential": 0,
+      "temporary": 0
+    }
+  },
+  "movement": { "fullMove": "65", "maneuverPen": "-10" },
+  "resists": {
+    "channeling": { "item": 0, "misc": 0 },
+    "disease": { "item": 23, "misc": 125 },
+    "essence": { "item": 0, "misc": 0 },
+    "mentalism": { "item": 0, "misc": 0 },
+    "poison": { "item": 0, "misc": 0 },
+    "terrorFear": { "item": 0, "misc": 0 }
+  },
+  "similars": [
+    { "item": 1, "misc": 0, "name": "Animal Healing", "ranks": 1 },
+    { "item": 0, "misc": 0, "name": "Animal Training", "ranks": 1 },
+    { "item": 0, "misc": 0, "name": "Beast Mastery", "ranks": 1 },
+    { "item": 0, "misc": 0, "name": "Herding", "ranks": 1 },
+    { "item": 0, "misc": 0, "name": "Riding", "ranks": 1 },
+    { "item": 0, "misc": 0, "name": "Wagoner/Driver", "ranks": 1 }
+  ],
+  "skillAreas": {
+    "academic": 43,
+    "arms": 1,
+    "athletic": 3,
+    "base": 31,
+    "body": 0,
+    "concentration": 2,
+    "deadly": 0,
+    "directed": 0,
+    "general": 0,
+    "linguistic": 0,
+    "magical": 0,
+    "medical": 0,
+    "outdoor": 0,
+    "perception": 0,
+    "social": 0,
+    "subterfuge": 0
+  },
+  "skills": {
+    "Animal Handling": {
+      "giving": 1,
+      "item": 0,
+      "misc": 0,
+      "levelRanks": {
+        "0": 1,
+        "inDev": 1
+      },
+      "notes": ""
+    }
+  }
+}

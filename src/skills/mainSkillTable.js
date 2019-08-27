@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import skills from "./skills.json";
 import calculateLevelFromExp from "../level";
+import styled from "styled-components";
+
+const Table = styled.table`
+  width: 100%;
+  margin-bottom: 50px;
+`;
 
 const firestoreSave = (firestore, skills, isSimilars) => (
   bonus,
@@ -47,20 +53,23 @@ const calculateGivingFromRanks = ranks => {
 };
 
 const generateSkillRowPartial = (data, level, save, skills, isSimilars) => (
+  skillName,
   skill,
   i
 ) => {
   const [item, setItem] = useState(skill.item);
   const [misc, setMisc] = useState(skill.misc);
   const [notes, setNotes] = useState(skill.notes);
-  const [skillName, setSkillname] = useState(skill.name);
+  const ranks =
+    skill.ranks ||
+    Object.values(skill.levelRanks).reduce((prev, cur) => prev + cur);
 
-  const giving = calculateGivingFromRanks(skill.ranks);
+  const giving = calculateGivingFromRanks(ranks);
   const levelBonus =
-    data.skillAreas[skills[skill.name].skillArea.toLowerCase()] * level;
+    data.skillAreas[skills[skillName].skillArea.toLowerCase()] * level;
 
-  const stat1 = data.mainStats[skills[skill.name].stat1.toLowerCase()];
-  const stat2 = data.mainStats[skills[skill.name].stat2.toLowerCase()];
+  const stat1 = data.mainStats[skills[skillName].stat1.toLowerCase()];
+  const stat2 = data.mainStats[skills[skillName].stat2.toLowerCase()];
 
   const statBonus = Math.ceil(
     (stat1 ? stat1.current : 0 + stat2 ? stat2.current : 0) / 2
@@ -69,23 +78,11 @@ const generateSkillRowPartial = (data, level, save, skills, isSimilars) => (
 
   return (
     <tr key={i}>
-      <td>
-        {isSimilars ? (
-          skillName
-        ) : (
-          <input
-            type="text"
-            id={skill + "Name"}
-            value={skillName}
-            onChange={e => setSkillname(e.target.value)}
-            onBlur={e => save(e.target.value, "name", i)}
-          />
-        )}
-      </td>
-      <td>{skills[skill.name].skillArea}</td>
-      <td>{skills[skill.name].stat1}</td>
-      <td>{skills[skill.name].stat2}</td>
-      <td>{skill.ranks}</td>
+      <td>{skillName}</td>
+      <td>{skills[skillName].skillArea}</td>
+      <td>{skills[skillName].stat1}</td>
+      <td>{skills[skillName].stat2}</td>
+      <td>{ranks}</td>
       <td>{giving}</td>
       <td>{levelBonus}</td>
       <td>{statBonus}</td>
@@ -117,7 +114,7 @@ const generateSkillRowPartial = (data, level, save, skills, isSimilars) => (
           onBlur={e => save(e.target.value, "notes")}
         />
       </td>
-      <td>finish later</td>
+      <td>{isSimilars ? "" : skill.levelRanks.inDev}</td>
     </tr>
   );
 };
@@ -139,7 +136,7 @@ const MainSkillTable = props => {
 
   return (
     <div>
-      <table style={{ width: "100%" }}>
+      <Table>
         <thead>
           <tr>
             <th>Skill</th>
@@ -158,9 +155,11 @@ const MainSkillTable = props => {
           </tr>
         </thead>
         <tbody>
-          {props.data.skills.map((skill, i) => generateSkillRow(skill, i))}
+          {Object.entries(props.data.skills).map(([skillName, skill], i) =>
+            generateSkillRow(skillName, skill, i)
+          )}
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 };
