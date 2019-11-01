@@ -29,7 +29,7 @@ const firestoreSave = (firestore, bonusType) => (bonus, bonusName) => {
   }
   firestore
     .collection("users")
-    .doc("0")
+    .doc("james@jamesreed.name")
     .collection("characters")
     .doc("0")
     .set(

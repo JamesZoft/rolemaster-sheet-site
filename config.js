@@ -17,7 +17,7 @@ var db = admin.firestore();
 // The array of date and location fields are optional
 
 db.collection("users")
-  .doc("0")
+  .doc("james@jamesreed.name")
   .collection("characters")
   .doc("0")
   .set({

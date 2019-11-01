@@ -7,7 +7,7 @@ import styled from "styled-components";
 const firestoreSave = firestore => notes => {
   firestore
     .collection("users")
-    .doc("0")
+    .doc("james@jamesreed.name")
     .collection("characters")
     .doc("0")
     .set(
@@ -46,8 +46,14 @@ const Skills = props => {
 
       <Textarea
         value={notes}
-        onChange={e => setNotes(e.target.value)}
-        onBlur={() => save(notes)}
+        onChange={e => {
+          console.log("notes: " + e.target.value);
+          return setNotes(e.target.value);
+        }}
+        onBlur={() => {
+          console.log("saving notes");
+          save(notes);
+        }}
       ></Textarea>
     </Container>
   );

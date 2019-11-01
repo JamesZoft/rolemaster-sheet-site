@@ -20,7 +20,7 @@ const firestoreSave = (firestore, skills, isSimilars) => (
 
   firestore
     .collection("users")
-    .doc("0")
+    .doc("james@jamesreed.name")
     .collection("characters")
     .doc("0")
     .set(

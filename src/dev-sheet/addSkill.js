@@ -49,7 +49,7 @@ const AddSkill = props => {
         <Select onChange={e => setSelectedSkill(e.target.value)}>
           <option />
           {Object.keys(skillsList).map((skillName, i) => {
-            return <option value={skillName}>{skillName}</option>;
+            return <option key={`skillNameOption${i}`} value={skillName}>{skillName}</option>;
           })}
         </Select>
         {selectedSkill && (

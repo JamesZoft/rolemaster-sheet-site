@@ -22,7 +22,7 @@ const firestoreSave = (firestore, languages) => (bonus, bonusName, rowNum) => {
 
   firestore
     .collection("users")
-    .doc("0")
+    .doc("james@jamesreed.name")
     .collection("characters")
     .doc("0")
     .set(

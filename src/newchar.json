@@ -37,66 +37,16 @@
   ],
   "magic": [{ "mult": 1, "ptsPerLvl": 0, "realm": "Essence" }],
   "mainStats": {
-    "ag": {
-      "current": 80,
-      "otherBonus": 0,
-      "potential": 0,
-      "temporary": 0
-    },
-    "co": {
-      "current": 80,
-      "otherBonus": 0,
-      "potential": 80,
-      "temporary": 70
-    },
-    "em": {
-      "current": 105,
-      "otherBonus": 0,
-      "potential": 0,
-      "temporary": 0
-    },
-    "in": {
-      "current": 76,
-      "otherBonus": 0,
-      "potential": 0,
-      "temporary": 0
-    },
-    "me": {
-      "current": 150,
-      "otherBonus": 0,
-      "potential": 0,
-      "temporary": 0
-    },
-    "pr": {
-      "current": 55,
-      "otherBonus": 0,
-      "potential": 0,
-      "temporary": 0
-    },
-    "qu": {
-      "current": 10,
-      "otherBonus": 0,
-      "potential": 0,
-      "temporary": 0
-    },
-    "re": {
-      "current": 30,
-      "otherBonus": 0,
-      "potential": 0,
-      "temporary": 0
-    },
-    "sd": {
-      "current": 90,
-      "otherBonus": 0,
-      "potential": 0,
-      "temporary": 0
-    },
-    "st": {
-      "current": 20,
-      "otherBonus": 0,
-      "potential": 0,
-      "temporary": 0
-    }
+    "ag": { "current": 80, "otherBonus": 0, "potential": 0, "temporary": 0 },
+    "co": { "current": 80, "otherBonus": 0, "potential": 80, "temporary": 70 },
+    "em": { "current": 105, "otherBonus": 0, "potential": 0, "temporary": 0 },
+    "in": { "current": 76, "otherBonus": 0, "potential": 0, "temporary": 0 },
+    "me": { "current": 150, "otherBonus": 0, "potential": 0, "temporary": 0 },
+    "pr": { "current": 55, "otherBonus": 0, "potential": 0, "temporary": 0 },
+    "qu": { "current": 10, "otherBonus": 0, "potential": 0, "temporary": 0 },
+    "re": { "current": 30, "otherBonus": 0, "potential": 0, "temporary": 0 },
+    "sd": { "current": 90, "otherBonus": 0, "potential": 0, "temporary": 0 },
+    "st": { "current": 20, "otherBonus": 0, "potential": 0, "temporary": 0 }
   },
   "movement": { "fullMove": "65", "maneuverPen": "-10" },
   "resists": {
@@ -107,14 +57,14 @@
     "poison": { "item": 0, "misc": 0 },
     "terrorFear": { "item": 0, "misc": 0 }
   },
-  "similars": [
-    { "item": 1, "misc": 0, "name": "Animal Healing", "ranks": 1 },
-    { "item": 0, "misc": 0, "name": "Animal Training", "ranks": 1 },
-    { "item": 0, "misc": 0, "name": "Beast Mastery", "ranks": 1 },
-    { "item": 0, "misc": 0, "name": "Herding", "ranks": 1 },
-    { "item": 0, "misc": 0, "name": "Riding", "ranks": 1 },
-    { "item": 0, "misc": 0, "name": "Wagoner/Driver", "ranks": 1 }
-  ],
+  "similars": {
+    "Animal Healing": { "item": 0, "misc": 0, "ranks": 1 },
+    "Animal Training": { "item": 0, "misc": 0, "ranks": 5 },
+    "Beast Mastery": { "item": 0, "misc": 0, "ranks": 2 },
+    "Herding": { "item": 0, "misc": 0, "ranks": 5 },
+    "Riding": { "item": 0, "misc": 0, "ranks": 2 },
+    "Wagoner/Driver": { "item": 0, "misc": 0, "ranks": 5 }
+  },
   "skillAreas": {
     "academic": 43,
     "arms": 1,
@@ -133,15 +83,13 @@
     "social": 0,
     "subterfuge": 0
   },
+  "skillNotes": "qwd",
   "skills": {
     "Animal Handling": {
-      "giving": 1,
+      "giving": 0,
       "item": 0,
+      "levelRanks": { "0": 1, "1": "3", "2": "3", "4": "3", "inDev": 0 },
       "misc": 0,
-      "levelRanks": {
-        "0": 1,
-        "inDev": 1
-      },
       "notes": ""
     }
   }

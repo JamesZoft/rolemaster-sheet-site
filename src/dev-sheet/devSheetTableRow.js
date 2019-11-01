@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import skillCosts from "./skillCosts.json";
+import { getTotalSkillRanks } from '../shared/skills';
 
 const firestoreSave = (firestore, skills) => (devRanks, skillName) => {
   const skill = skills[skillName];
@@ -7,7 +8,7 @@ const firestoreSave = (firestore, skills) => (devRanks, skillName) => {
 
   firestore
     .collection("users")
-    .doc("0")
+    .doc("james@jamesreed.name")
     .collection("characters")
     .doc("0")
     .set(
@@ -19,24 +20,16 @@ const firestoreSave = (firestore, skills) => (devRanks, skillName) => {
 };
 
 const TableRow = props => {
-  const [devRanks, setDevRanks] = useState(props.skill.levelRanks.inDev);
+  const [devRanks, setDevRanks] = useState(parseInt(props.skill.levelRanks.inDev));
   const [giving, setGiving] = useState(props.skill.giving);
 
-  const skillTotal =
-    Object.entries(props.skill.levelRanks)
-      .map(([k, v]) => {
-        if (k === "inDev") {
-          return 0;
-        }
-        return parseInt(v);
-      })
-      .reduce((a, b) => a + b) + giving;
+  
   let devPointsUsed = props.calculateDevPointsForRanksInSkill(
     props.skill.levelRanks.inDev,
     skillCosts[props.skillName]
   );
 
-  const save = firestoreSave(props.firestore, props.data.skills);
+  const save = firestoreSave(props.firestore, props.skills);
 
   return (
     <tr>
@@ -46,17 +39,17 @@ const TableRow = props => {
         <input
           type="number"
           value={devRanks}
-          onChange={e => setDevRanks(e.target.value)}
-          onBlur={e => save(devRanks, props.skillName)}
+          onChange={e => setDevRanks(parseInt(e.target.value))}
+          onKeyUp={e =>  save(devRanks, props.skillName)}
         />
       </td>
       <td>{devPointsUsed}</td>
-      <td>{skillTotal}</td>
+      <td>{getTotalSkillRanks(props.skill.levelRanks, giving)}</td>
       <td>
         <input
           type="number"
           value={giving}
-          onChange={e => setGiving(e.target.value)}
+          onChange={e => setGiving(parseInt(e.target.value))}
           onBlur={e => save(giving, props.skillName)}
         />
       </td>

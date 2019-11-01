@@ -1,13 +1,14 @@
 import React from "react";
 import similars from "./similars.json";
 import MainSkillTable from "./mainSkillTable.js";
+import isEqual from "lodash/isEqual";
 
 const firestoreSave = (firestore, skills) => (skillName, skill) => {
   skills[skillName] = skill;
 
   firestore
     .collection("users")
-    .doc("0")
+    .doc("james@jamesreed.name")
     .collection("characters")
     .doc("0")
     .set(
@@ -28,16 +29,15 @@ const SimilarsTable = props => {
       Object.keys(similars[skillName]).forEach(similar => {
         const storedSimilar = props.data.similars[similar];
         const ranks = Object.values(skill.levelRanks).reduce(
-          (prev, cur) => prev + cur
+          (prev, cur) => parseInt(prev) + parseInt(cur)
         );
-        data.skills[skillName] = {
-          name: similar,
+        data.skills[similar] = {
           item: storedSimilar ? storedSimilar.item : 0,
           misc: storedSimilar ? storedSimilar.misc : 0,
           ranks: parseInt(ranks * similars[skillName][similar]) || 1
         };
-        if (!storedSimilar) {
-          save(similar, data.skills[skillName]);
+        if (!storedSimilar || !isEqual(storedSimilar, data.skills[similar])) {
+          save(similar, data.skills[similar]);
         }
       });
   });

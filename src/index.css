@@ -22,3 +22,7 @@ table th {
 table td {
   border: 1px solid grey;
 }
+
+* {
+  background-color: #EEEFFF;
+}
