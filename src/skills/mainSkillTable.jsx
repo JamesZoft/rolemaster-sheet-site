@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import skills from "./skills.json";
+import skillsData from "./skillsData.json";
 import calculateLevelFromExp from "../level";
 import styled from "styled-components";
+import firebase from "firebase/app";
 
 const Table = styled.table`
   width: 100%;
@@ -52,7 +53,21 @@ const calculateGivingFromRanks = ranks => {
   return giving + ranksLeft;
 };
 
-const generateSkillRowPartial = (data, level, save, skills, isSimilars) => (
+const deleteSkillPartial = (firestore) => name => {
+  if (!window.confirm(`Are you sure you want to delete the skill ${name}?`)) {
+    return;
+  }
+
+  firestore
+    .collection("users")
+    .doc("james@jamesreed.name")
+    .collection("characters")
+    .doc("0").update({
+      [`skills.${name}`]: firebase.firestore.FieldValue.delete()
+    })
+}
+
+const generateSkillRowPartial = (data, level, save, skills, isSimilars, deleteSkill) => (
   skillName,
   skill,
   i
@@ -60,16 +75,18 @@ const generateSkillRowPartial = (data, level, save, skills, isSimilars) => (
   const [item, setItem] = useState(skill.item);
   const [misc, setMisc] = useState(skill.misc);
   const [notes, setNotes] = useState(skill.notes);
+
   const ranks =
     skill.ranks ||
-    Object.values(skill.levelRanks).reduce((prev, cur) => prev + cur);
+    Object.values(skill.levelRanks).reduce((prev, cur) => parseInt(prev) + parseInt(cur))
+    - parseInt(skill.levelRanks.inDev);
 
   const giving = calculateGivingFromRanks(ranks);
-  const levelBonus =
-    data.skillAreas[skills[skillName].skillArea.toLowerCase()] * level;
+  const levelBonus = skillsData[skillName].skillArea === 'Special' ? 0 : 
+    data.skillAreas[skillsData[skillName].skillArea.toLowerCase()] * level;
 
-  const stat1 = data.mainStats[skills[skillName].stat1.toLowerCase()];
-  const stat2 = data.mainStats[skills[skillName].stat2.toLowerCase()];
+  const stat1 = data.mainStats[skillsData[skillName].stat1.toLowerCase()];
+  const stat2 = data.mainStats[skillsData[skillName].stat2.toLowerCase()];
 
   const statBonus = Math.ceil(
     (stat1 ? stat1.current : 0 + stat2 ? stat2.current : 0) / 2
@@ -79,9 +96,9 @@ const generateSkillRowPartial = (data, level, save, skills, isSimilars) => (
   return (
     <tr key={i}>
       <td>{skillName}</td>
-      <td>{skills[skillName].skillArea}</td>
-      <td>{skills[skillName].stat1}</td>
-      <td>{skills[skillName].stat2}</td>
+      <td>{skillsData[skillName].skillArea}</td>
+      <td>{skillsData[skillName].stat1}</td>
+      <td>{skillsData[skillName].stat2}</td>
       <td>{ranks}</td>
       <td>{giving}</td>
       <td>{levelBonus}</td>
@@ -115,12 +132,15 @@ const generateSkillRowPartial = (data, level, save, skills, isSimilars) => (
         />
       </td>
       <td>{isSimilars ? "" : skill.levelRanks.inDev}</td>
+      <td><button onClick={() => deleteSkill(skillName)}>Delete</button></td>
     </tr>
   );
 };
 
 const MainSkillTable = props => {
   const level = calculateLevelFromExp(props.data.experience);
+  const deleteSkill = deleteSkillPartial(props.firestore);
+
   const save = firestoreSave(
     props.firestore,
     props.data.skills,
@@ -130,8 +150,9 @@ const MainSkillTable = props => {
     props.data,
     level,
     save,
-    skills,
-    props.isSimilars
+    props.data.skills,
+    props.isSimilars,
+    deleteSkill
   );
 
   return (
@@ -152,6 +173,7 @@ const MainSkillTable = props => {
             <th>Total</th>
             <th>Notes</th>
             <th>Dev</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>

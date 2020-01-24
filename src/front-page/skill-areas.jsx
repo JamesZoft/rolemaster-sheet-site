@@ -16,10 +16,7 @@ const Wrapper = styled.div`
     }
   `;
 
-const firestoreSave = firestore => (bonus, bonusName) => {
-  if (typeof bonus === "string") {
-    bonus = parseInt(bonus);
-  }
+const firestoreSave = firestore => (name, skillArea) => {
   firestore
     .collection("users")
     .doc("james@jamesreed.name")
@@ -28,37 +25,73 @@ const firestoreSave = firestore => (bonus, bonusName) => {
     .set(
       {
         skillAreas: {
-          [bonusName]: bonus
+          [name]: skillArea
         }
       },
       { merge: true }
     );
 };
 
+const generateSkillAreaPartial = (save, level) => (name, skillArea) => {
+  const [bonus, setBonus] = useState(parseInt(skillArea.bonus || 0));
+  const [misc, setMisc] = useState(parseInt(skillArea.misc || 0))
+  const label = name.charAt(0).toUpperCase() + name.substr(1, name.length - 1);
+  return (
+    <tr key={`skillArea${name}`}>
+      <td>{label}</td>
+      <td>
+        <input
+          type="number"
+          id={`${label.toLowerCase()}Bonus`}
+          value={bonus}
+          onChange={e => {
+            setBonus(parseInt(e.target.value));
+            skillArea.bonus = parseInt(e.target.value);
+            save(name, skillArea);
+          }}
+        />
+      </td>
+      <td>
+      <input
+          type="number"
+          id={`${label.toLowerCase()}Misc`}
+          value={misc}
+          onChange={e => {
+            setMisc(parseInt(e.target.value));
+            skillArea.misc = parseInt(e.target.value);
+            save(name, skillArea);
+          }}
+        />
+      </td>
+      <td>{bonus * level + misc}</td>
+    </tr>
+  )
+}
+
 const SkillAreas = props => {
   const save = firestoreSave(props.firestore);
+  const level = props.calculateLevelFromExp(props.experience);
+  const generateSkillArea = generateSkillAreaPartial(save, level);
 
-  const [academicBonus, setAcademicBonus] = useState(props.academic);
-  const [armsBonus, setArmsBonus] = useState(props.arms);
-  const [athleticBonus, setAthleticBonus] = useState(props.athletic);
-  const [baseBonus, setBaseBonus] = useState(props.base);
-  const [bodyBonus, setBodyBonus] = useState(props.body);
-  const [concentrationBonus, setConcentrationBonus] = useState(
-    props.concentration
-  );
-  const [deadlyBonus, setDeadlyBonus] = useState(props.deadly);
-  const [directedBonus, setDirectedBonus] = useState(props.directed);
-  const [generalBonus, setGeneralBonus] = useState(props.general);
-  const [linguisticBonus, setLinguisticBonus] = useState(props.linguistic);
-  const [magicalBonus, setMagicalBonus] = useState(props.magical);
-  const [medicalBonus, setMedicalBonus] = useState(props.medical);
-  const [outdoorBonus, setOutdoorsBonus] = useState(props.outdoor);
-  const [perceptionBonus, setPerceptionBonus] = useState(props.perception);
-  const [socialBonus, setSocialBonus] = useState(props.social);
-  const [subterfugeBonus, setSubterfugeBonus] = useState(props.subterfuge);
-  const [level, setLevel] = useState(
-    props.calculateLevelFromExp(props.experience)
-  );
+  // const [academicBonus, setAcademicBonus] = useState(props.academic);
+  // const [armsBonus, setArmsBonus] = useState(props.arms);
+  // const [athleticBonus, setAthleticBonus] = useState(props.athletic);
+  // const [baseBonus, setBaseBonus] = useState(props.base);
+  // const [bodyBonus, setBodyBonus] = useState(props.body);
+  // const [concentrationBonus, setConcentrationBonus] = useState(
+  //   props.concentration
+  // );
+  // const [deadlyBonus, setDeadlyBonus] = useState(props.deadly);
+  // const [directedBonus, setDirectedBonus] = useState(props.directed);
+  // const [generalBonus, setGeneralBonus] = useState(props.general);
+  // const [linguisticBonus, setLinguisticBonus] = useState(props.linguistic);
+  // const [magicalBonus, setMagicalBonus] = useState(props.magical);
+  // const [medicalBonus, setMedicalBonus] = useState(props.medical);
+  // const [outdoorBonus, setOutdoorsBonus] = useState(props.outdoor);
+  // const [perceptionBonus, setPerceptionBonus] = useState(props.perception);
+  // const [socialBonus, setSocialBonus] = useState(props.social);
+  // const [subterfugeBonus, setSubterfugeBonus] = useState(props.subterfuge);
+  
 
   return (
     <Wrapper>
@@ -67,9 +100,27 @@ const SkillAreas = props => {
           <tr>
             <td>Skill Area</td>
             <td>Bonus</td>
+            <td>Misc</td>
             <td>Total</td>
           </tr>
-          <tr>
+          {Object.entries(props.skillAreas).map(([skillAreaName, skillArea]) => generateSkillArea(skillAreaName, skillArea))}
+          {/* {generateSkillArea("Academic", props.academic)}
+          {generateSkillArea("Arms", props.arms)}
+          {generateSkillArea("Athletic", props.athletic)}
+          {generateSkillArea("Base", props.base)}
+          {generateSkillArea("Body", props.body)}
+          {generateSkillArea("Concentration", props.concentration)}
+          {generateSkillArea("Deadly", props.deadly)}
+          {generateSkillArea("Directed", props.directed)}
+          {generateSkillArea("General", props.general)}
+          {generateSkillArea("Linguistic", props.linguistic)}
+          {generateSkillArea("Magical", props.magical)}
+          {generateSkillArea("Medical", props.medical)}
+          {generateSkillArea("Outdoor", props.outdoor)}
+          {generateSkillArea("Perception", props.perception)}
+          {generateSkillArea("Social", props.social)}
+          {generateSkillArea("Subterfuge", props.subterfuge)} */}
+          {/* <tr>
             <td>Academic</td>
             <td>
               <input
@@ -258,7 +309,7 @@ const SkillAreas = props => {
                 value={outdoorBonus}
                 onChange={e => {
                   setOutdoorsBonus(e.target.value);
-                  save(e.target.value, "outdoors");
+                  save(e.target.value, "outdoor");
                 }}
               />
             </td>
@@ -308,7 +359,7 @@ const SkillAreas = props => {
               />
             </td>
             <td>{subterfugeBonus * level}</td>
-          </tr>
+          </tr> */}
         </tbody>
       </Table>
     </Wrapper>

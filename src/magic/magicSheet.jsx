@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import MagicListTable from './magicListTable';
 import styled from 'styled-components';
 import SpellDev from './spellDev';
 import GridTable from './gridTable';
+import ChooseMagicUpgradeAction from './chooseMagicUpgradeAction';
+import { getTotalSkillRanks } from '../shared/skills';
 
 const Button = styled.button`
     width: 100px;
@@ -11,43 +13,31 @@ const Button = styled.button`
     margin: 10px;
 `;
 
-
-const firestoreSave = (firestore, magicLists) => (name, spellList) => {
-    magicLists[name] = spellList
-    
-  
-    firestore
-      .collection("users")
-      .doc("james@jamesreed.name")
-      .collection("characters")
-      .doc("0")
-      .set(
-        {
-          magicLists: magicLists
-        },
-        { merge: true }
-      );
-  };
-
 const MagicSheet = ({magicLists, magicListsDev, skills, mainStats, fluffStats, firestore}) => {
     const spellListsSkill = skills["Spell Lists"];
     const primaryStatTotalBonus = mainStats[fluffStats.primaryStat].statBonus || 0 + mainStats[fluffStats.primaryStat].racialBonus || 0 + mainStats[fluffStats.primaryStat].otherBonus || 0;
-    const save = firestoreSave(firestore, magicLists);
+    const spellListsTotalSkillRanks = getTotalSkillRanks(spellListsSkill.levelRanks, spellListsSkill.giving);
+
+    const [showUpgradePopup, setShowUpgradePopup] = useState(false);
 
     return (
         <>
             <div style={{display: 'flex'}}>
                 <div style={{flex: 1}}>
-                    <MagicListTable magicLists={magicLists} spellListsSkill={spellListsSkill}/>
+                    <MagicListTable magicLists={magicLists} firestore={firestore} spellListsSkill={spellListsSkill}/>
                 </div>
                 <div>
-                    <Button>Add Spell List</Button>
-                    <Button>Colour Spell Lists</Button>
-                    <Button>Sort Spell Lists</Button>
+                    <Button onClick={() => setShowUpgradePopup(true)}>Add Spell List</Button>
                 </div>
             </div>
             <div>
-                <SpellDev primaryStatTotalBonus={primaryStatTotalBonus} magicListsDev={magicListsDev} spellListsSkill={spellListsSkill} />
+                <SpellDev 
+                    firestore={firestore}
+                    primaryStatTotalBonus={primaryStatTotalBonus} 
+                    magicListsDev={magicListsDev} 
+                    spellListsSkill={spellListsSkill} 
+                    
+                />
             </div>
             <GridTable numCols={3}>
                 <div>Spell Casting Time</div><div>From</div><div>To</div>
@@ -55,6 +45,16 @@ const MagicSheet = ({magicLists, magicListsDev, skills, mainStats, fluffStats, f
                 <div style={{backgroundColor: 'yellow'}}>Two Rounds</div><div style={{backgroundColor: 'yellow'}}>4</div><div style={{backgroundColor: 'yellow'}}>6</div>
                 <div style={{backgroundColor: 'lightblue'}}>Three Rounds</div><div style={{backgroundColor: 'lightblue'}}>7</div><div style={{backgroundColor: 'lightblue'}}>9</div>
             </GridTable>
+            <div>
+                <ChooseMagicUpgradeAction 
+                    showUpgradePopup={showUpgradePopup}
+                    setShowUpgradePopup={setShowUpgradePopup}
+                    spellListsTotalSkillRanks={spellListsTotalSkillRanks}
+                    magicLists={magicLists}
+                    magicListsDev={magicListsDev}
+                    firestore={firestore}
+                />
+            </div>
         </>
     )
 };

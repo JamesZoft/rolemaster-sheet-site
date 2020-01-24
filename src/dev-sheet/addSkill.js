@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from "react";
 import styled from "styled-components";
-import skillsList from "./../skills/skills.json";
+import skillsList from "./../skills/skillsData.json";
 import skillCosts from "./skillCosts.json";
 
 const backdrop = styled.div`

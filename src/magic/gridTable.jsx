@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const generateGridComponentStyling = (numCols, numTitleRows) => {
@@ -22,10 +22,10 @@ const Div = styled.div`
     }
 `;
 
-const GridTable = ({numCols, numTitleRows, children}) => {
+const GridTable = ({numCols, numTitleRows, overrideStyles, children}) => {
     numTitleRows = numTitleRows || 1;
     return (
-        <Div {...{numCols, numTitleRows}} style={{display: 'grid', margin: 10, gridTemplateColumns: `${[...Array(numCols).keys()].map(v => 'auto').join(' ')}`, gridTemplateRows: 'auto'}}>
+        <Div {...{numCols, numTitleRows}} style={{display: 'grid', margin: 10, gridTemplateColumns: `${[...Array(numCols).keys()].map(v => 'auto').join(' ')}`, gridTemplateRows: 'auto', overrideStyles}}>
             {children}
         </Div>
     );

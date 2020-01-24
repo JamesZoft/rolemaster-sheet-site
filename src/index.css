@@ -23,6 +23,20 @@ table td {
   border: 1px solid grey;
 }
 
-* {
+body {
   background-color: #EEEFFF;
+}
+
+.modal > div {
+  height: 100%;
+}
+
+.modal {
+  height: 90%;
+  overflow: scroll;
+  /* padding-bottom: 10px; */
+}
+
+.overlay {
+  padding-bottom: 10px
 }

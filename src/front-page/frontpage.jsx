@@ -119,8 +119,11 @@ const FrontPage = props => {
     data.mainStats[stat].statBonus = calculateStatBonusFromStat(
       data.mainStats[stat].current
     );
-    data.mainStats[stat].racialBonus = racialStatBonuses[i];
+    // data.mainStats[stat].racialBonus = racialStatBonuses[i];
   });
+  ["co", "ag", "sd", "me", "re", "st", "qu", "pr", "in", "em"].forEach((stat, i) => 
+    data.mainStats[stat].racialBonus = racialStatBonuses[i]
+  );
 
   ["co", "ag", "sd", "me", "re", "pr"].forEach((stat, i) => {
     data.mainStats[stat].dps = calculateDPsFromStat(
@@ -158,27 +161,27 @@ const FrontPage = props => {
             calculateLevelFromExp={calculateLevelFromExp}
             firestore={props.firestore}
             experience={data.experience}
-            {...data.skillAreas}
+            skillAreas={data.skillAreas}
           />
           <ColSection>
             <PrimarySecondaryRealm
               primaryStat={data.fluffStats.primaryStat}
               secondaryStat={data.fluffStats.secondaryStat}
               realm={data.fluffStats.realm}
+              firestore={props.firestore}
             />
             <Movement {...data.movement} firestore={props.firestore} />
             <Defenses
               firestore={props.firestore}
-              quBonus={data.mainStats.qu.statBonus}
+              quickness={data.mainStats.qu}
               defenses={data.defenses}
             />
             <Magic
               calculateLevelFromExp={calculateLevelFromExp}
-              mult={1}
               stats={data.mainStats}
               primaryStat={data.fluffStats.primaryStat}
-              realm="essence"
               experience={data.experience}
+              firestore={props.firestore}
               {...data.magic}
             />
           </ColSection>
@@ -188,10 +191,9 @@ const FrontPage = props => {
             rolled={data.health.rolled}
             firestore={props.firestore}
             race="Dwarf"
-            bodyDevRanks={5}
-            con={data.mainStats.co.current}
+            bodyDevRanks={18}
+            con={data.mainStats.co}
             bodySkill={data.skillAreas.body}
-            conBonus={10}
           />
         </Section>
       </Fragment>

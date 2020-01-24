@@ -1,0 +1,1367 @@
+{
+  "Absorb Knowledge": {
+    "realm": "Mentalism",
+    "base": "Sage base",
+    "source": "RCII 9.24 p61"
+  },
+  "Adrenal Focus": {
+    "realm": "Mentalism",
+    "base": "Nightblade base",
+    "source": "RC1 3.35 p25"
+  },
+  "Analysis": {
+    "realm": "Mentalism",
+    "base": "Sage base",
+    "source": "RCII 9.22 p60"
+  },
+  "Animal Bonding": {
+    "realm": "Essence",
+    "base": "Beastmaster base",
+    "source": "RCII 10.11 p71"
+  },
+  "Animal Mastery(A)": {
+    "realm": "Channeling",
+    "base": "Animist base",
+    "source": "SL 2.3.1 p29"
+  },
+  "Animal Mastery(D)": {
+    "realm": "Channeling",
+    "base": "Druid base",
+    "source": "RC1 3.21 p18"
+  },
+  "Animal Ways": {
+    "realm": "Channeling",
+    "base": "Shaman base",
+    "source": "RCII 9.41 p66"
+  },
+  "Animate Dead": {
+    "realm": "Channeling",
+    "base": "Necromancer base",
+    "source": "RCII 8.11 p44"
+  },
+  "Anticipations": {
+    "realm": "Mentalism",
+    "base": "Open",
+    "source": "SL 4.1.1 p137"
+  },
+  "Arcane Dispelling": {
+    "realm": "Arcane",
+    "base": "Special",
+    "source": "Dave Weddell"
+  },
+  "Arcane Healing": {
+    "realm": "Arcane",
+    "base": "Closed",
+    "source": "AC 13.2.1 p59"
+  },
+  "Arcane Motions": {
+    "realm": "Arcane",
+    "base": "Chaotic base",
+    "source": "AC 13.5.1 p81"
+  },
+  "Arcane Senses": {
+    "realm": "Arcane",
+    "base": "Open",
+    "source": "AC 13.1.3 P51"
+  },
+  "Arcane Shield": {
+    "realm": "Arcane",
+    "base": "Open",
+    "source": "AC 13.1.4 p52"
+  },
+  "Arm's Way": {
+    "realm": "Channeling",
+    "base": "Paladin base",
+    "source": "RCII 10.44 p81"
+  },
+  "Assassination Mastery": {
+    "realm": "Mentalism",
+    "base": "Magent base",
+    "source": "SL 4.6.1 p175"
+  },
+  "Attack Avoidance": {
+    "realm": "Mentalism",
+    "base": "Open",
+    "source": "SL 4.1.2 p138"
+  },
+  "Barriers": {
+    "realm": "Essence",
+    "base": "Closed",
+    "source": "SUCO 8.2.7 p56"
+  },
+  "Barrier Law": {
+    "realm": "Channeling",
+    "base": "Open",
+    "source": "SL 2.1.1 p9"
+  },
+  "Bladerunes": {
+    "realm": "Arcane",
+    "base": "Arcane",
+    "source": "RC1 3.11 p10"
+  },
+  "Blood Law": {
+    "realm": "Channeling",
+    "base": "Closed",
+    "source": "SL 2.2.1 p19"
+  },
+  "Blood Mastery": {
+    "realm": "Mentalism",
+    "base": "Lay Healer base",
+    "source": "SL 4.3.1 p157"
+  },
+  "Blood Ways": {
+    "realm": "Channeling",
+    "base": "Healer base",
+    "source": "SL 2.7.1 p53"
+  },
+  "Body Mastery": {
+    "realm": "Any",
+    "base": "Prosaic",
+    "source": "SUC p120"
+  },
+  "Body Reins": {
+    "realm": "Essence",
+    "base": "Monk base",
+    "source": "SL 3.6.1 p111"
+  },
+  "Body Renewal": {
+    "realm": "Essence",
+    "base": "Monk base",
+    "source": "SL 3.6.2 p112"
+  },
+  "Bone Law": {
+    "realm": "Channeling",
+    "base": "Closed",
+    "source": "SL 2.2.2 p20"
+  },
+  "Bone Mastery": {
+    "realm": "Mentalism",
+    "base": "Lay Healer base",
+    "source": "SL 4.3.2 p158"
+  },
+  "Bone Ways": {
+    "realm": "Channeling",
+    "base": "Healer base",
+    "source": "SL 2.7.2 p54"
+  },
+  "Brilliance": {
+    "realm": "Mentalism",
+    "base": "Open",
+    "source": "SL 4.1.3 p139"
+  },
+  "Calm Spirits": {
+    "realm": "Channeling",
+    "base": "Closed",
+    "source": "SL 2.2.3 p21"
+  },
+  "Candle Magic": {
+    "realm": "Channeling",
+    "base": "Witch base",
+    "source": "RCII 8.34 p54"
+  },
+  "Ceremonies": {
+    "realm": "Channeling",
+    "base": "Special Closed",
+    "source": "RCI 3.51 p28"
+  },
+  "Changeling": {
+    "realm": "Channeling",
+    "base": "Warlock base",
+    "source": "RCII 8.21 p48"
+  },
+  "Changing Dances": {
+    "realm": "Channeling",
+    "base": "Dervish base",
+    "source": "RCII 10.34 p78"
+  },
+  "Channels": {
+    "realm": "Channeling",
+    "base": "Cleric base",
+    "source": "SL 2.4.1 p35"
+  },
+  "Circle Mastery": {
+    "realm": "Essence",
+    "base": "Runemaster base",
+    "source": "RCII 9.32 p63"
+  },
+  "Circles of Power": {
+    "realm": "Essence",
+    "base": "Conjuror base",
+    "source": "RCII 9.11 p56"
+  },
+  "Circles of Protection": {
+    "realm": "Essence",
+    "base": "Conjuror base",
+    "source": "RCII 9.12 p57"
+  },
+  "Circles of Summoning": {
+    "realm": "Essence",
+    "base": "Conjuror base",
+    "source": "RCII 9.13 p58"
+  },
+  "Cleansing": {
+    "realm": "Channeling",
+    "base": "Healer base",
+    "source": "SL 2.7.3 p55"
+  },
+  "Cloaking": {
+    "realm": "Mentalism",
+    "base": "Open",
+    "source": "SL 4.1.4 p140"
+  },
+  "Combat Enhancement": {
+    "realm": "Essence",
+    "base": "Beastmaster base",
+    "source": "RCII 10.12 p72"
+  },
+  "Communal Ways": {
+    "realm": "Channeling",
+    "base": "Cleric base",
+    "source": "SL 2.4.2 p36"
+  },
+  "Commune": {
+    "realm": "Channeling",
+    "base": "Necromancer base",
+    "source": "RCII 8.14 p46"
+  },
+  "Communing Dances": {
+    "realm": "Channeling",
+    "base": "Dervish base",
+    "source": "RCII 10.36 p79"
+  },
+  "Communion": {
+    "realm": "Channeling",
+    "base": "Paladin base",
+    "source": "SL 2.5.1 p41"
+  },
+  "Concealment Mastery": {
+    "realm": "Essence",
+    "base": "Dabbler base",
+    "source": "SL 3.5.1 p105"
+  },
+  "Concussion Mastery": {
+    "realm": "Mentalism",
+    "base": "Lay Healer base",
+    "source": "SL 4.3.3 p159"
+  },
+  "Concussion's Ways": {
+    "realm": "Channeling",
+    "base": "Open",
+    "source": "SL 2.1.2 p10"
+  },
+  "Confusing Ways": {
+    "realm": "Mentalism",
+    "base": "Mystic base",
+    "source": "SL 4.7.1 p181"
+  },
+  "Conjuring Ways": {
+    "realm": "Channeling",
+    "base": "Witch base",
+    "source": "RCII 8.36 p55"
+  },
+  "Construction Ways": {
+    "realm": "Essence",
+    "base": "Closed",
+    "source": "SUCO p54"
+  },
+  "Controlling Songs": {
+    "realm": "Mentalism",
+    "base": "Bard base",
+    "source": "SL 4.5.1 p169"
+  },
+  "Conveying Ways": {
+    "realm": "Essence",
+    "base": "Magician base",
+    "source": "RCII 10.63 p86"
+  },
+  "Creations": {
+    "realm": "Channeling",
+    "base": "Closed",
+    "source": "SL 2.2.4 p22"
+  },
+  "Curses": {
+    "realm": "Channeling",
+    "base": "Evil",
+    "source": "SL 2.8.1 p59"
+  },
+  "Damage Resistance": {
+    "realm": "Mentalism",
+    "base": "Open",
+    "source": "SL 4.1.5 p141"
+  },
+  "Dark Channels": {
+    "realm": "Channeling",
+    "base": "Evil",
+    "source": "SL 2.8.2 p60"
+  },
+  "Dark Contacts": {
+    "realm": "Essence",
+    "base": "Evil",
+    "source": "SL 3.8.1 p123"
+  },
+  "Dark Law": {
+    "realm": "Channeling",
+    "base": "Necromancer base",
+    "source": "RCII 8.13 p45"
+  },
+  "Dark Lore": {
+    "realm": "Channeling",
+    "base": "Evil",
+    "source": "SL 2.8.3 p61"
+  },
+  "Dark Summons": {
+    "realm": "Essence",
+    "base": "Evil",
+    "source": "SL 3.8.2 p124"
+  },
+  "Darkness": {
+    "realm": "Essence",
+    "base": "Evil",
+    "source": "SL 3.8.3 p125"
+  },
+  "Deadly Dances": {
+    "realm": "Channeling",
+    "base": "Dervish base",
+    "source": "RCII 10.32 p77"
+  },
+  "Death Mastery": {
+    "realm": "Channeling",
+    "base": "Necromancer base",
+    "source": "RCII 8.12 p44"
+  },
+  "Delving": {
+    "realm": "Mentalism",
+    "base": "Open",
+    "source": "SL 4.1.6 p142"
+  },
+  "Delving Ways": {
+    "realm": "Essence",
+    "base": "Open",
+    "source": "SL 3.1.1 p73"
+  },
+  "Demon Mastery": {
+    "realm": "Essence",
+    "base": "Conjuror base",
+    "source": "RCII 9.14 p59"
+  },
+  "Detecting Ways": {
+    "realm": "Essence",
+    "base": "Open",
+    "source": "SL 3.1.2 p74"
+  },
+  "Detection Law": {
+    "realm": "Arcane",
+    "base": "Open",
+    "source": "AC 13.1.6 p54"
+  },
+  "Detection Mastery": {
+    "realm": "Channeling",
+    "base": "Open",
+    "source": "SL 2.1.3 p11"
+  },
+  "Detections": {
+    "realm": "Mentalism",
+    "base": "Open",
+    "source": "SL 4.1.7 p143"
+  },
+  "Disease": {
+    "realm": "Channeling",
+    "base": "Evil",
+    "source": "SL 2.8.4 p62"
+  },
+  "Disguise Mastery": {
+    "realm": "Mentalism",
+    "base": "Magent base",
+    "source": "SL 4.6.2 p176"
+  },
+  "Dispelling Ways": {
+    "realm": "Essence",
+    "base": "Closed",
+    "source": "SL 3.2.1 p83"
+  },
+  "Distractions": {
+    "realm": "Mentalism",
+    "base": "Nightblade base",
+    "source": "RC1 3.31 p23"
+  },
+  "Doom's Laws": {
+    "realm": "Channeling",
+    "base": "Warlock base",
+    "source": "RCII 8.23 p50"
+  },
+  "Druid's Peace": {
+    "realm": "Channeling",
+    "base": "Druid base",
+    "source": "RC1 3.22 p18"
+  },
+  "Druidstaff": {
+    "realm": "Channeling",
+    "base": "Druid base",
+    "source": "RC1 3.23 p19"
+  },
+  "Earth Law": {
+    "realm": "Essence",
+    "base": "Magician base",
+    "source": "SL 3.4.1 p90"
+  },
+  "Earth Mastery": {
+    "realm": "Channeling",
+    "base": "Witch base",
+    "source": "RCII 8.32 p53"
+  },
+  "Earthblood's Ways": {
+    "realm": "Arcane",
+    "base": "Arcane",
+    "source": "RC1 3.12 p11"
+  },
+  "Elemental Shields": {
+    "realm": "Essence",
+    "base": "Open",
+    "source": "SL 3.1.3 p75"
+  },
+  "Elemental Summons": {
+    "realm": "Essence",
+    "base": "Magician base",
+    "source": "RCII 10.61 p85"
+  },
+  "Elemental Ways": {
+    "realm": "Essence",
+    "base": "Warrior Mage base",
+    "source": "RCII 10.22 p74"
+  },
+  "Enchanting Ways": {
+    "realm": "Essence",
+    "base": "Alchemist base",
+    "source": "SL 9.1.1 p265"
+  },
+  "Enchanting Ways(Rev)": {
+    "realm": "Essence",
+    "base": "Alchemist base",
+    "source": "AlcC 7.1.3 p81"
+  },
+  "Entertaining Ways": {
+    "realm": "Mentalism",
+    "base": "Bard base",
+    "source": "SL 4.5.2 p170"
+  },
+  "Entity Mastery": {
+    "realm": "Arcane",
+    "base": "Arcane",
+    "source": "RC1 3.13 p13"
+  },
+  "Entity Summons": {
+    "realm": "Essence",
+    "base": "Evil",
+    "source": "SL 3.8.4 p126"
+  },
+  "Escapes": {
+    "realm": "Mentalism",
+    "base": "Magent base",
+    "source": "SL 4.6.3 p177"
+  },
+  "Essence Embedding": {
+    "realm": "Essence",
+    "base": "Alchemist base",
+    "source": "SL 9.1.2 p266"
+  },
+  "Essence Hand": {
+    "realm": "Essence",
+    "base": "Open",
+    "source": "SL 3.1.4 p76"
+  },
+  "Essence Perceptions": {
+    "realm": "Essence",
+    "base": "Open",
+    "source": "SL 3.1.5 p77"
+  },
+  "Ethereal Mastery": {
+    "realm": "Arcane",
+    "base": "Arcane",
+    "source": "RC1 3.14 p14"
+  },
+  "Evasions": {
+    "realm": "Essence",
+    "base": "Monk base",
+    "source": "SL 3.6.3 p113"
+  },
+  "Exorcisms": {
+    "realm": "Channeling",
+    "base": "Paladin base",
+    "source": "SL 2.5.2 p42"
+  },
+  "Far Voice": {
+    "realm": "Chan./Ment.",
+    "base": "Astrologer base",
+    "source": "SL 9.2.1 p271"
+  },
+  "Fascination Dances": {
+    "realm": "Channeling",
+    "base": "Dervish base",
+    "source": "RCII 10.31 p76"
+  },
+  "Feel-Taste-Smell": {
+    "realm": "Essence",
+    "base": "Illusionist base",
+    "source": "SL 3.3.1 p93"
+  },
+  "Fire Law": {
+    "realm": "Essence",
+    "base": "Magician base",
+    "source": "SL 3.4.2 p100"
+  },
+  "Flesh Destruction": {
+    "realm": "Essence",
+    "base": "Sorcerer base",
+    "source": "SL 3.7.1 p117"
+  },
+  "Fluid Destruction": {
+    "realm": "Essence",
+    "base": "Sorcerer base",
+    "source": "SL 3.7.2 p118"
+  },
+  "Force Mastery": {
+    "realm": "Essence",
+    "base": "Forcemage base",
+    "source": "RMCV p35"
+  },
+  "Future Visions": {
+    "realm": "Mentalism",
+    "base": "Seer base",
+    "source": "SL 9.3.1 p277"
+  },
+  "Gas Alteration": {
+    "realm": "Mentalism",
+    "base": "Mystic base",
+    "source": "SL 4.7.3 p182"
+  },
+  "Gas Destruction": {
+    "realm": "Essence",
+    "base": "Sorcerer base",
+    "source": "SL 3.7.3 p119"
+  },
+  "Gas Manipulation": {
+    "realm": "Mentalism",
+    "base": "Closed",
+    "source": "SL 4.2.1 p147"
+  },
+  "Gate Mastery": {
+    "realm": "Essence",
+    "base": "Closed",
+    "source": "SL 3.2.2 p84"
+  },
+  "Gathering Secrets": {
+    "realm": "Mentalism",
+    "base": "Magent base",
+    "source": "SL 4.6.4 p178"
+  },
+  "Guarded Sight": {
+    "realm": "Mentalism",
+    "base": "Seer base",
+    "source": "RCII 10.62 p85"
+  },
+  "Guardian Ways": {
+    "realm": "Channeling",
+    "base": "Special",
+    "source": "RCI 3.53 p35"
+  },
+  "Guises": {
+    "realm": "Essence",
+    "base": "Illusionist base",
+    "source": "SL 3.3.2 p94"
+  },
+  "Hand of Chaos": {
+    "realm": "Arcane",
+    "base": "Chaotic base",
+    "source": "AC 13.5.4 p84"
+  },
+  "Herb Mastery": {
+    "realm": "Channeling",
+    "base": "Animist base",
+    "source": "SL 2.3.2 p30"
+  },
+  "Hiding": {
+    "realm": "Mentalism",
+    "base": "Mystic base",
+    "source": "SL 4.7.3 p183"
+  },
+  "Holy Arms": {
+    "realm": "Channeling",
+    "base": "Paladin base",
+    "source": "SL 2.5.3 p43"
+  },
+  "Holy Healing": {
+    "realm": "Channeling",
+    "base": "Paladin base",
+    "source": "SL 2.5.4 p44"
+  },
+  "Holy Shields": {
+    "realm": "Channeling",
+    "base": "Paladin base",
+    "source": "SL 2.5.5 p45"
+  },
+  "Holy Vision": {
+    "realm": "Chan./Ment.",
+    "base": "Astrologer base",
+    "source": "SL 9.2.2 p272"
+  },
+  "Ice Law": {
+    "realm": "Essence",
+    "base": "Magician base",
+    "source": "SL 3.4.3 p101"
+  },
+  "Illusion Mastery": {
+    "realm": "Essence",
+    "base": "Illusionist base",
+    "source": "SL 3.3.3 p95"
+  },
+  "Illusions": {
+    "realm": "Mentalism",
+    "base": "Open",
+    "source": "SL 4.1.8 p144"
+  },
+  "Influences": {
+    "realm": "Essence",
+    "base": "Dabbler base",
+    "source": "SL 3.5.2 p106"
+  },
+  "Inner Walls": {
+    "realm": "Channeling",
+    "base": "Ranger base",
+    "source": "SL 2.6.1 p47"
+  },
+  "Inorganic Skills": {
+    "realm": "Essence",
+    "base": "Alchemist base",
+    "source": "SL 9.1.3 p267"
+  },
+  "Inorganic Skills(Rev)": {
+    "realm": "Essence",
+    "base": "Alchemist base",
+    "source": "AlcC 7.1.5 p84"
+  },
+  "Inspirations": {
+    "realm": "Channeling",
+    "base": "Paladin base",
+    "source": "RCII 10.45 p82"
+  },
+  "Inspiring Ways": {
+    "realm": "Channeling",
+    "base": "Paladin base",
+    "source": "SL 2.5.6 p46"
+  },
+  "Invisible Ways": {
+    "realm": "Essence",
+    "base": "Closed",
+    "source": "SL 3.2.3 p85"
+  },
+  "Item Lore": {
+    "realm": "Mentalism",
+    "base": "Bard base",
+    "source": "SL 4.5.3 p171"
+  },
+  "Laying on Hands": {
+    "realm": "Channeling",
+    "base": "Paladin base",
+    "source": "RCII 10.43 p81"
+  },
+  "Lesser Illusions": {
+    "realm": "Essence",
+    "base": "Open",
+    "source": "SL 3.1.6 p78"
+  },
+  "Life Essence Healing": {
+    "realm": "Channeling",
+    "base": "Healer base",
+    "source": "RCII 10.64 p86"
+  },
+  "Life Mastery": {
+    "realm": "Channeling",
+    "base": "Cleric base",
+    "source": "SL 2.4.3 p37"
+  },
+  "Light Law": {
+    "realm": "Essence",
+    "base": "Magician base",
+    "source": "SL 3.4.4 p102"
+  },
+  "Light Moulding": {
+    "realm": "Essence",
+    "base": "Illusionist base",
+    "source": "SL 3.3.4 p96"
+  },
+  "Light's Way": {
+    "realm": "Channeling",
+    "base": "Open",
+    "source": "SL 2.1.4 p12"
+  },
+  "Liquid Alteration": {
+    "realm": "Mentalism",
+    "base": "Mystic base",
+    "source": "SL 4.7.4 p184"
+  },
+  "Liquid Manipulation": {
+    "realm": "Mentalism",
+    "base": "Closed",
+    "source": "SL 4.2.2 p148"
+  },
+  "Liquid-Gas Skills": {
+    "realm": "Essence",
+    "base": "Alchemist base",
+    "source": "SL 9.1.4 p268"
+  },
+  "Liquid-Gas Skills(Rev)": {
+    "realm": "Essence",
+    "base": "Alchemist base",
+    "source": "AlcC 7.1.6 p85"
+  },
+  "Living Change": {
+    "realm": "Essence",
+    "base": "Closed",
+    "source": "SL 3.2.4 p86"
+  },
+  "Locating Ways": {
+    "realm": "Channeling",
+    "base": "Closed",
+    "source": "SL 2.2.5 p23"
+  },
+  "Lofty Bridge": {
+    "realm": "Essence",
+    "base": "Closed",
+    "source": "SL 3.2.5 p87"
+  },
+  "Lofty Movements": {
+    "realm": "Channeling",
+    "base": "Open",
+    "source": "SL 2.1.5 p13"
+  },
+  "Lore": {
+    "realm": "Channeling",
+    "base": "Closed",
+    "source": "SL 2.2.6 p24"
+  },
+  "Lores": {
+    "realm": "Mentalism",
+    "base": "Bard base",
+    "source": "SL 4.5.4 p172"
+  },
+  "Lore's Master": {
+    "realm": "Mentalism",
+    "base": "Sage base",
+    "source": "RCII 9.23 p60"
+  },
+  "Mana Fires": {
+    "realm": "Arcane",
+    "base": "Arcane",
+    "source": "RC1 3.15 p15"
+  },
+  "Mana Lore": {
+    "realm": "Arcane",
+    "base": "Arcanist base",
+    "source": "AC 13.3.1 p69"
+  },
+  "Matter Disruption": {
+    "realm": "Essence",
+    "base": "Evil",
+    "source": "SL 3.8.5 p127"
+  },
+  "Mechanisms": {
+    "realm": "Essence",
+    "base": "Dabbler base",
+    "source": "SL 3.5.3 p107"
+  },
+  "Ment./Chan. Embedding": {
+    "realm": "Essence",
+    "base": "Alchemist base",
+    "source": "SL 9.1.5 p269"
+  },
+  "Metal Lore": {
+    "realm": "Arcane",
+    "base": "Arcane",
+    "source": "RCII 10.52 p83"
+  },
+  "Mind Attack": {
+    "realm": "Mentalism",
+    "base": "Mentalist base",
+    "source": "SL 4.4.1 p163"
+  },
+  "Mind Control": {
+    "realm": "Mentalism",
+    "base": "Mentalist base",
+    "source": "SL 4.4.2 p164"
+  },
+  "Mind Death": {
+    "realm": "Mentalism",
+    "base": "Evil",
+    "source": "SL 4.8.1 p187"
+  },
+  "Mind Destruction": {
+    "realm": "Essence",
+    "base": "Sorcerer base",
+    "source": "SL 3.7.4 p120"
+  },
+  "Mind Disease": {
+    "realm": "Mentalism",
+    "base": "Evil",
+    "source": "SL 4.8.2 p188"
+  },
+  "Mind Domination": {
+    "realm": "Mentalism",
+    "base": "Evil",
+    "source": "SL 4.8.3 p189"
+  },
+  "Mind Erosion": {
+    "realm": "Mentalism",
+    "base": "Evil",
+    "source": "SL 4.8.4 p190"
+  },
+  "Mind Illusions": {
+    "realm": "Mentalism",
+    "base": "Evil",
+    "source": "SL 4.8.5 p191"
+  },
+  "Mind Mastery": {
+    "realm": "Mentalism",
+    "base": "Closed",
+    "source": "SL 4.2.3 p149"
+  },
+  "Mind Merge": {
+    "realm": "Mentalism",
+    "base": "Mentalist base",
+    "source": "SL 4.4.3 p165"
+  },
+  "Mind Over Matter": {
+    "realm": "Essence",
+    "base": "Monk base",
+    "source": "SL 3.6.4 p114"
+  },
+  "Mind Sense Moulding": {
+    "realm": "Essence",
+    "base": "Illusionist base",
+    "source": "SL 3.3.5 p97"
+  },
+  "Mind Speech": {
+    "realm": "Mentalism",
+    "base": "Mentalist base",
+    "source": "SL 4.4.4 p166"
+  },
+  "Mind Subversion": {
+    "realm": "Mentalism",
+    "base": "Evil",
+    "source": "SL 4.8.6 p192"
+  },
+  "Mind Visions": {
+    "realm": "Mentalism",
+    "base": "Seer base",
+    "source": "SL 9.3.2 p278"
+  },
+  "Mind's Door": {
+    "realm": "Mentalism",
+    "base": "Closed",
+    "source": "SL 4.2.4 p150"
+  },
+  "Mind's Touch": {
+    "realm": "Essence",
+    "base": "Warrior Mage base",
+    "source": "RCII 10.21 p74"
+  },
+  "Mirror Magic": {
+    "realm": "Essence",
+    "base": "Closed",
+    "source": "RCVII 8.7.5 p93"
+  },
+  "Misdirections": {
+    "realm": "Mentalism",
+    "base": "Magent base",
+    "source": "SL 4.6.5 p179"
+  },
+  "Monk's Bridge": {
+    "realm": "Essence",
+    "base": "Monk base",
+    "source": "SL 3.6.5 p115"
+  },
+  "Monk's Senses": {
+    "realm": "Essence",
+    "base": "Monk base",
+    "source": "SL 3.6.6 p116"
+  },
+  "Movement": {
+    "realm": "Mentalism",
+    "base": "Closed",
+    "source": "SL 4.2.5 p151"
+  },
+  "Movement Enhancement": {
+    "realm": "Essence",
+    "base": "Beastmaster base",
+    "source": "RCII 10.13 p72"
+  },
+  "Movement Mastery": {
+    "realm": "Essence",
+    "base": "Dabbler base",
+    "source": "SL 3.5.4 p108"
+  },
+  "Moving Ways": {
+    "realm": "Channeling",
+    "base": "Ranger base",
+    "source": "SL 2.6.2 p48"
+  },
+  "Muscle Law": {
+    "realm": "Channeling",
+    "base": "Closed",
+    "source": "SL 2.2.7 p25"
+  },
+  "Muscle Mastery": {
+    "realm": "Mentalism",
+    "base": "Lay Healer base",
+    "source": "SL 4.3.4 p160"
+  },
+  "Muscle Ways": {
+    "realm": "Channeling",
+    "base": "Healer base",
+    "source": "SL 2.7.4 p56"
+  },
+  "Mystical Change": {
+    "realm": "Mentalism",
+    "base": "Mystic base",
+    "source": "SL 4.7.5 p185"
+  },
+  "Nature's Forms": {
+    "realm": "Channeling",
+    "base": "Druid base",
+    "source": "RC1 3.24 p20"
+  },
+  "Nature's Guises": {
+    "realm": "Channeling",
+    "base": "Ranger base",
+    "source": "SL 2.6.3 p49"
+  },
+  "Nature's Law": {
+    "realm": "Channeling",
+    "base": "Open",
+    "source": "SL 2.1.6 p14"
+  },
+  "Nature's Lore": {
+    "realm": "Channeling",
+    "base": "Animist base",
+    "source": "SL 2.3.3 p31"
+  },
+  "Nature's Mastery": {
+    "realm": "Channeling",
+    "base": "Witch base",
+    "source": "RCII 8.33 p54"
+  },
+  "Nature's Movement/Senses": {
+    "realm": "Channeling",
+    "base": "Animist base",
+    "source": "SL 2.3.4 p32"
+  },
+  "Nature's Protection": {
+    "realm": "Channeling",
+    "base": "Animist base",
+    "source": "SL 2.3.5 p33"
+  },
+  "Nature's Summons": {
+    "realm": "Channeling",
+    "base": "Ranger base",
+    "source": "SL 2.6.4 p50"
+  },
+  "Nature's Way": {
+    "realm": "Channeling",
+    "base": "Ranger base",
+    "source": "SL 2.6.5 p51"
+  },
+  "Necromancy": {
+    "realm": "Channeling",
+    "base": "Evil",
+    "source": "SL 2.8.5 p63"
+  },
+  "Nerve and Organ Mastery": {
+    "realm": "Mentalism",
+    "base": "Lay Healer base",
+    "source": "SL 4.3.5 p161"
+  },
+  "Nerve Law": {
+    "realm": "Channeling",
+    "base": "Closed",
+    "source": "SL 2.2.8 p26"
+  },
+  "Noble Armour": {
+    "realm": "Mentalism",
+    "base": "Noble Warrior base",
+    "source": "RC 3 8.41 p56"
+  },
+  "Noble Weapons": {
+    "realm": "Mentalism",
+    "base": "Noble Warrior base",
+    "source": "RC 3 8.42 p57"
+  },
+  "Organ Law": {
+    "realm": "Channeling",
+    "base": "Closed",
+    "source": "SL 2.2.9 p27"
+  },
+  "Organ Ways": {
+    "realm": "Channeling",
+    "base": "Healer base",
+    "source": "SL 2.7.5 p57"
+  },
+  "Organic Skills": {
+    "realm": "Essence",
+    "base": "Alchemist base",
+    "source": "SL 9.1.6 p270"
+  },
+  "Organic Skills(Rev)": {
+    "realm": "Essence",
+    "base": "Alchemist base",
+    "source": "AlcC 7.1.4 p83"
+  },
+  "Organism Skills": {
+    "realm": "Essence",
+    "base": "Organic Alchemist base",
+    "source": "AlcC 8.2.2 p108"
+  },
+  "Past Visions": {
+    "realm": "Mentalism",
+    "base": "Seer base",
+    "source": "SL 9.3.3 p279"
+  },
+  "Path Mastery": {
+    "realm": "Channeling",
+    "base": "Ranger base",
+    "source": "SL 2.6.6 p52"
+  },
+  "Phantom Movements": {
+    "realm": "Mentalism",
+    "base": "Nightblade base",
+    "source": "RC1 3.33 p24"
+  },
+  "Phantom's Face": {
+    "realm": "Mentalism",
+    "base": "Nightblade base",
+    "source": "RC1 3.32 p23"
+  },
+  "Physical Enhancement": {
+    "realm": "Essence",
+    "base": "Open",
+    "source": "SL 3.1.7 p79"
+  },
+  "Physical Erosion": {
+    "realm": "Essence",
+    "base": "Evil",
+    "source": "SL 3.8.6 p128"
+  },
+  "Pirate's Way": {
+    "realm": "Essence",
+    "base": "Professional",
+    "source": "RC5 7.7.2 p62"
+  },
+  "Plant Mastery": {
+    "realm": "Channeling",
+    "base": "Animist base",
+    "source": "SL 2.3.6 p34"
+  },
+  "Poison Mastery (M)": {
+    "realm": "Mentalism",
+    "base": "Magent base",
+    "source": "SL 4.6.6 p180"
+  },
+  "Poison Mastery (N)": {
+    "realm": "Mentalism",
+    "base": "Nightblade base",
+    "source": "RC1 3.34 p24"
+  },
+  "Potion Mastery": {
+    "realm": "Channeling",
+    "base": "Witch base",
+    "source": "RCII 8.35 p55"
+  },
+  "Presence": {
+    "realm": "Mentalism",
+    "base": "Mentalist base",
+    "source": "SL 4.4.5 p167"
+  },
+  "Prosthetics": {
+    "realm": "Mentalism",
+    "base": "Lay Healer base",
+    "source": "SL 4.3.6 p162"
+  },
+  "Protections": {
+    "realm": "Channeling",
+    "base": "Cleric base",
+    "source": "SL 2.4.4 p38"
+  },
+  "Purifications": {
+    "realm": "Channeling",
+    "base": "Open",
+    "source": "SL 2.1.7 p15"
+  },
+  "Ranger's Weapon": {
+    "realm": "Channeling",
+    "base": "Ranger base",
+    "source": "RC1 3.23 p19"
+  },
+  "Rapid Ways": {
+    "realm": "Essence",
+    "base": "Closed",
+    "source": "SL 3.2.6 p88"
+  },
+  "Recreations": {
+    "realm": "Mentalism",
+    "base": "Sage base",
+    "source": "RCII 9.21 p59"
+  },
+  "Rending Ways": {
+    "realm": "Essence",
+    "base": "Sorcerer base",
+    "source": "SUCO p67"
+  },
+  "Repulsions": {
+    "realm": "Channeling",
+    "base": "Cleric base",
+    "source": "SL 2.4.5 p39"
+  },
+  "Rune Mastery": {
+    "realm": "Essence",
+    "base": "Open",
+    "source": "SL 3.1.8 p80"
+  },
+  "Sailing Law": {
+    "realm": "Essence",
+    "base": "Prosaic",
+    "source": "SUCO 8.5.5 p106"
+  },
+  "Self Healing": {
+    "realm": "Mentalism",
+    "base": "Open",
+    "source": "SL 4.1.9 p145"
+  },
+  "Sense Control": {
+    "realm": "Mentalism",
+    "base": "Mentalist base",
+    "source": "SL 4.4.6 p168"
+  },
+  "Sense Enhancement": {
+    "realm": "Essence",
+    "base": "Beastmaster base",
+    "source": "RCII 10.14 p73"
+  },
+  "Sense Mastery": {
+    "realm": "Mentalism",
+    "base": "Closed",
+    "source": "SL 4.2.6 p152"
+  },
+  "Sense Through Others": {
+    "realm": "Mentalism",
+    "base": "Seer base",
+    "source": "SL 9.3.4 p280"
+  },
+  "Senses": {
+    "realm": "Essence",
+    "base": "Dabbler base",
+    "source": "SL 3.5.5 p109"
+  },
+  "Shapechanging Ways": {
+    "realm": "Arcane",
+    "base": "Arcane",
+    "source": "RC1 3.17 p17"
+  },
+  "Shield Mastery": {
+    "realm": "Essence",
+    "base": "Closed",
+    "source": "SL 3.2.7 p89"
+  },
+  "Shifting": {
+    "realm": "Mentalism",
+    "base": "Closed",
+    "source": "SL 4.2.7 p153"
+  },
+  "Solid Alteration": {
+    "realm": "Mentalism",
+    "base": "Mystic base",
+    "source": "SL 4.7.6 p186"
+  },
+  "Solid Destruction": {
+    "realm": "Essence",
+    "base": "Sorcerer base",
+    "source": "SL 3.7.5 p121"
+  },
+  "Solid Manipulation": {
+    "realm": "Mentalism",
+    "base": "Closed",
+    "source": "SL 4.2.8 p154"
+  },
+  "Soul Destruction": {
+    "realm": "Essence",
+    "base": "Sorcerer base",
+    "source": "SL 3.7.6 p122"
+  },
+  "Sound Control": {
+    "realm": "Mentalism",
+    "base": "Bard base",
+    "source": "SL 4.5.5 p173"
+  },
+  "Sound Moulding": {
+    "realm": "Essence",
+    "base": "Illusionist base",
+    "source": "SL 3.3.6 p98"
+  },
+  "Sound Projection": {
+    "realm": "Mentalism",
+    "base": "Bard base",
+    "source": "SL 4.5.6 p174"
+  },
+  "Sound's Way": {
+    "realm": "Channeling",
+    "base": "Open",
+    "source": "SL 2.1.8 p16"
+  },
+  "Speed": {
+    "realm": "Mentalism",
+    "base": "Closed",
+    "source": "SL 4.2.9 p155"
+  },
+  "Spell Coordination": {
+    "realm": "Arcane",
+    "base": "Arcane",
+    "source": "RC1 3.16 p16"
+  },
+  "Spell Defence": {
+    "realm": "Channeling",
+    "base": "Open",
+    "source": "SL 2.1.9 p17"
+  },
+  "Spell Enhancement": {
+    "realm": "Essence",
+    "base": "Closed",
+    "source": "SL 3.2.8 p90"
+  },
+  "Spell Reins": {
+    "realm": "Essence",
+    "base": "Closed",
+    "source": "SL 3.2.9 p91"
+  },
+  "Spell Resistance": {
+    "realm": "Mentalism",
+    "base": "Open",
+    "source": "SL 4.1.10 p146"
+  },
+  "Spell Wall": {
+    "realm": "Essence",
+    "base": "Open",
+    "source": "SL 3.1.9 p81"
+  },
+  "Spirit Mastery": {
+    "realm": "Essence",
+    "base": "Closed",
+    "source": "SL 3.2.10 p92"
+  },
+  "Spiritwrack": {
+    "realm": "Arcane",
+    "base": "Closed",
+    "source": "RC5 7.9.3 p72"
+  },
+  "Star Lights": {
+    "realm": "Chan./Ment.",
+    "base": "Astrologer base",
+    "source": "SL 9.2.3 p273"
+  },
+  "Starsense": {
+    "realm": "Chan./Ment.",
+    "base": "Astrologer base",
+    "source": "SL 9.2.4 p274"
+  },
+  "Stone Mastery": {
+    "realm": "Channeling",
+    "base": "Druid base",
+    "source": "RC1 3.25 p21"
+  },
+  "Summons": {
+    "realm": "Channeling",
+    "base": "Cleric base",
+    "source": "SL 2.4.6 p40"
+  },
+  "Surface Ways": {
+    "realm": "Channeling",
+    "base": "Healer base",
+    "source": "SL 2.7.6 p58"
+  },
+  "Symbolic Ways": {
+    "realm": "Channeling",
+    "base": "Closed",
+    "source": "SL 2.2.10 p28"
+  },
+  "Telekinesis": {
+    "realm": "Mentalism",
+    "base": "Closed",
+    "source": "SL 4.2.10 p156"
+  },
+  "Thieving Law": {
+    "realm": "Essence",
+    "base": "Dabbler base",
+    "source": "SL 3.5.6 p110"
+  },
+  "Time's Bridge": {
+    "realm": "Chan./Ment.",
+    "base": "Astrologer base",
+    "source": "SL 9.2.5 p275"
+  },
+  "Tree Mastery": {
+    "realm": "Channeling",
+    "base": "Druid base",
+    "source": "RC1 3.26 p22"
+  },
+  "Tricks of the Trade": {
+    "realm": "Any",
+    "base": "Prosaic",
+    "source": "SUC p119"
+  },
+  "True Perception": {
+    "realm": "Mentalism",
+    "base": "Seer base",
+    "source": "SL 9.3.5 p281"
+  },
+  "True Sight": {
+    "realm": "Mentalism",
+    "base": "Seer base",
+    "source": "SL 9.3.6 p282"
+  },
+  "Unbarring Ways": {
+    "realm": "Essence",
+    "base": "Open",
+    "source": "SL 3.1.10 p82"
+  },
+  "Void Law": {
+    "realm": "Arcane",
+    "base": "Arcanist base",
+    "source": "AC 13.3.5 p73"
+  },
+  "Water Law": {
+    "realm": "Essence",
+    "base": "Magician base",
+    "source": "SL 3.4.5 p103"
+  },
+  "Way Of The Voice": {
+    "realm": "Chan./Ment.",
+    "base": "Astrologer base",
+    "source": "SL 9.2.6 p276"
+  },
+  "Weather Ways": {
+    "realm": "Channeling",
+    "base": "Open",
+    "source": "SL 2.1.10 p18"
+  },
+  "Wind Law": {
+    "realm": "Essence",
+    "base": "Magician base",
+    "source": "SL 3.4.6 p104"
+  },
+  "Wood Shaping": {
+    "realm": "Arcane",
+    "base": "Arcane",
+    "source": "RC2 10.54 p84"
+  },
+  "Wounding": {
+    "realm": "Channeling",
+    "base": "Evil",
+    "source": "SL 2.8.6 p64"
+  }
+}

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import skillCosts from "./skillCosts.json";
 import AddSkill from "./addSkill.js";
 import TableRow from "./devSheetTableRow";
+import MassAddSkills from "./massAddSkills.jsx";
 
 const Span = styled.span`
     margin-right: 20px;
@@ -27,6 +28,9 @@ const calculateDevPointsForRanksInSkill = (devRanks, costString) => {
   }
 
   const costArr = costString.split("/");
+  if (costArr.length === 1 && devRanks >= 2) {
+    return parseInt(costArr[0]);
+  }
   if (devRanks == 1) {
     return parseInt(costArr[0]);
   }
@@ -75,7 +79,7 @@ const calculateDPsFromStat = stat => {
   return statDevPointsMap[levelsUnderStat[levelsUnderStat.length - 1]];
 };
 
-const promoteDevToLevel = firestore => (skills, level) => {
+const promoteDevToLevel = (firestore, userId) => (skills, level) => {
   if (!(level >= 0)) {
     return;
   }
@@ -99,7 +103,7 @@ const promoteDevToLevel = firestore => (skills, level) => {
 
   firestore
     .collection("users")
-    .doc("james@jamesreed.name")
+    .doc(userId)
     .collection("characters")
     .doc("0")
     .set(
@@ -107,11 +111,37 @@ const promoteDevToLevel = firestore => (skills, level) => {
         skills: skills
       },
       { merge: true }
-    );
+    ).then(() => window.location.reload());
 };
 
+const addSkill = (skills, firestore, userId) => selectedSkill => {
+  if (selectedSkill && !skills[selectedSkill]) {
+    skills[selectedSkill] = {
+      giving: 0,
+      item: 0,
+      levelRanks: {
+        inDev: 0
+      },
+      misc: 0,
+      notes: ""
+    };
+
+    firestore
+      .collection("users")
+      .doc(userId)
+      .collection("characters")
+      .doc("0")
+      .set(
+        {
+          skills: skills
+        },
+        { merge: true }
+      );
+  }
+}
+
 const DevSheet = props => {
-  const dpsUsed = Object.entries(props.data.skills)
+  const dpsUsed = Object.keys(props.data.skills).length > 0 && Object.entries(props.data.skills)
     .map(([skillName, skill]) =>
       calculateDevPointsForRanksInSkill(
         parseInt(skill.levelRanks.inDev),
@@ -127,7 +157,7 @@ const DevSheet = props => {
     .reduce((a, b) => a + b);
 
   const [promoteLevel, setPromoteLevel] = useState(0);
-  const promoteDev = promoteDevToLevel(props.firestore);
+  const promoteDev = promoteDevToLevel(props.firestore, props.data.email);
 
   const [addSkillHidden, setAddSkillHidden] = useState(true);
 
@@ -137,29 +167,7 @@ const DevSheet = props => {
       <AddSkill
         hidden={addSkillHidden}
         selectSkill={selectedSkill => {
-          if (selectedSkill) {
-            props.data.skills[selectedSkill] = {
-              giving: 0,
-              item: 0,
-              levelRanks: {
-                inDev: 0
-              },
-              misc: 0,
-              notes: ""
-            };
-
-            props.firestore
-              .collection("users")
-              .doc("james@jamesreed.name")
-              .collection("characters")
-              .doc("0")
-              .set(
-                {
-                  skills: props.data.skills
-                },
-                { merge: true }
-              );
-          }
+          addSkill(props.data.skills, props.firestore, props.data.email);
           setAddSkillHidden(true);
         }}
         charClass={props.data.charClass}
@@ -179,6 +187,7 @@ const DevSheet = props => {
         value={promoteLevel}
         onChange={e => setPromoteLevel(e.target.value)}
       />
+      <MassAddSkills addSkill={addSkill(props.data.skills, props.firestore, props.data.email)} />
 
       <Table>
         <thead>
@@ -203,6 +212,7 @@ const DevSheet = props => {
                 calculateDevPointsForRanksInSkill={
                   calculateDevPointsForRanksInSkill
                 }
+                charClass={props.data.charClass}
                 skills={props.data.skills}
                 firestore={props.firestore}
               />

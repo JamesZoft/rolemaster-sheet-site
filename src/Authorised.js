@@ -68,12 +68,28 @@ const Authorised = props => {
   } else if (error) {
     return (
       <div>
-        An error occurred whilst authorising, please contact me directly to sort
-        it out!
+        An error occurred whilst authorising or fetching data - you may be having network issues. 
+        If not, please contact me directly to sort it out!
       </div>
     );
   } else {
-    return <button onClick={login}>Log in</button>;
+    return (
+      <>
+        <button onClick={login}>Log in</button>
+        <div style={{padding: 10, marginTop: 10}}>
+          This app uses google OAuth2 to identify you and allow you access to read, create and modify 
+          characters belonging to you. I am only using your very basic info - email, google id and such - 
+          no usage of your contacts, or access to anything else is requested, and no sensitive information
+          is stored - only your email and google uid. If in doubt, please contact me 
+          (<a href="mailto:james@jamesreed.name">james@jamesreed.name</a>) and I will be more than happy
+          to show you how I am authorising you, and prove that the above is true.
+        </div>
+        <div style={{padding: 10, marginTop: 10}}>
+          If you are happy to proceed, please click the login button above, which will either create you 
+          a new account or access your existing one.
+        </div>
+      </>
+    );
   }
 };
 

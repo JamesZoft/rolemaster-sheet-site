@@ -2,9 +2,20 @@ import React, { useState } from "react";
 import skillCosts from "./skillCosts.json";
 import { getTotalSkillRanks } from '../shared/skills';
 
-const firestoreSave = (firestore, skills) => (devRanks, skillName) => {
+const checkEnteredRanks = (charClass, skillName, ranks) => {
+  const costString = skillCosts[charClass][skillName]
+
+  const starRanksRegex = new RegExp("^[0-9]{1,2}\\/\\*$");
+  if (starRanksRegex.test(costString)) {
+    return ranks;
+  }
+
+  return Math.min(ranks, costString.split("/").length);
+}
+
+const firestoreSave = (firestore, skills) => (devRanks, skillName, property) => {
   const skill = skills[skillName];
-  skill.levelRanks.inDev = devRanks;
+  skill.levelRanks[property] = devRanks;
 
   firestore
     .collection("users")
@@ -21,12 +32,11 @@ const firestoreSave = (firestore, skills) => (devRanks, skillName) => {
 
 const TableRow = props => {
   const [devRanks, setDevRanks] = useState(parseInt(props.skill.levelRanks.inDev));
-  const [giving, setGiving] = useState(props.skill.giving);
+  const [giving, setGiving] = useState(props.skill.levelRanks.giving);
 
-  
   let devPointsUsed = props.calculateDevPointsForRanksInSkill(
-    props.skill.levelRanks.inDev,
-    skillCosts[props.skillName]
+    devRanks,
+    skillCosts[props.charClass][props.skillName]
   );
 
   const save = firestoreSave(props.firestore, props.skills);
@@ -39,8 +49,11 @@ const TableRow = props => {
         <input
           type="number"
           value={devRanks}
-          onChange={e => setDevRanks(parseInt(e.target.value))}
-          onKeyUp={e =>  save(devRanks, props.skillName)}
+          onChange={e => {
+            const val = e.target.value > 0 ? checkEnteredRanks(props.charClass, props.skillName, e.target.value) : 0;
+            setDevRanks(parseInt(val))
+            save(parseInt(val), props.skillName, 'inDev')
+          }}
         />
       </td>
       <td>{devPointsUsed}</td>
@@ -49,8 +62,10 @@ const TableRow = props => {
         <input
           type="number"
           value={giving}
-          onChange={e => setGiving(parseInt(e.target.value))}
-          onBlur={e => save(giving, props.skillName)}
+          onChange={e => {
+            setGiving(parseInt(e.target.value))
+            save(parseInt(e.target.value), props.skillName, 'giving')
+          }}
         />
       </td>
       {[...Array(51).keys()].map((key, i) => (

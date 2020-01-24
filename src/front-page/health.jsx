@@ -39,10 +39,10 @@ const firestoreSave = (firestore, rolled) => {
 
 const Health = props => {
   const [rolled, setRolled] = useState(props.rolled);
-  const baseHits = props.con / 10 + 0.9;
-  const nPerRank = props.bodyDevRanks * props.bodySkill;
+  const baseHits = props.con.current / 10 + 0.9;
+  const nPerRank = props.bodyDevRanks * props.bodySkill.bonus + props.bodySkill.misc;
   const basic = Math.floor(baseHits + rolled + nPerRank);
-  const conBonus = Math.floor(basic * (props.conBonus / 100));
+  const conBonus = Math.floor(basic * ((props.con.statBonus + props.con.racialBonus + props.con.otherBonus) / 100));
   const setRolledWrapper = setRolledOrMax(
     setRolled,
     maxRacialRolledHits[props.race],

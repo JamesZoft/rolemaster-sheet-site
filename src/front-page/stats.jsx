@@ -48,7 +48,7 @@ const generateCurrentRowPartial = save => (initial, label) => {
   const [stat, setStat] = useState(initial);
 
   return (
-    <td>
+    <td key={`statRow${label}`}>
       <input
         type="number"
         value={stat}
@@ -86,6 +86,10 @@ const Stats = props => {
     firestoreSave(props.firestore, "current")
   );
 
+  const generatePotentialRow = generateCurrentRowPartial(
+    firestoreSave(props.firestore, "potential")
+  );
+
   return (
     <Wrapper id="wrapper" className={props.className}>
       <Table>
@@ -99,7 +103,7 @@ const Stats = props => {
           <tr>
             <td>Potential</td>
             {statArray.map((stat, i) =>
-              generateCurrentRow(props[stat].potential, stat)
+              generatePotentialRow(props[stat].potential, stat)
             )}
           </tr>
           <tr>
@@ -128,9 +132,18 @@ const Stats = props => {
           </tr>
           <tr>
             <td>Other Bonus</td>
-            {statArray.map((stat, i) => (
-              <td key={i}>{props[stat].otherBonus}</td>
-            ))}
+            {statArray.map((stat, i) => {
+              return (
+                <td key={i}>
+                  <input 
+                    type="number" 
+                    value={props[stat].otherBonus} 
+                    onChange={e => firestoreSave(props.firestore, 'otherBonus')(e.target.value, stat)}
+                  />
+                  {/* {props[stat].otherBonus} */}
+                </td>
+              )
+            })}
           </tr>
           <BoldTr>
             <td>Total Bonus</td>

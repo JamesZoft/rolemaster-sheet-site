@@ -1,11 +1,11 @@
-import React, { Fragment, useState } from "react";
+import React from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 import * as svc from "./serviceAccountKey.json";
 import Authorised from "./Authorised";
 
-function App() {
+const App = () => {
   let app = !firebase.apps[0]
     ? firebase.initializeApp({
         apiKey: svc.apiKey,
@@ -17,6 +17,6 @@ function App() {
     : firebase.apps[0];
 
   return <Authorised app={app} />;
-}
+};
 
 export default App;

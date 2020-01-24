@@ -1,11 +1,12 @@
 import React, { Fragment } from "react";
-import { useDocument } from "react-firebase-hooks/firestore";
+import { useDocumentOnce, useDocument } from "react-firebase-hooks/firestore";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import FrontPage from "./front-page/frontpage";
 import SkillsPage from "./skills/skills";
 import DevSheet from "./dev-sheet/devsheet";
 import MagicSheet from "./magic/magicSheet";
+import SpellsSheet from "./magic/spellsSheet";
 
 const Footer = styled.div`
     span {
@@ -21,16 +22,14 @@ const Footer = styled.div`
   `;
 
 const Main = props => {
-  const [value, loading, collErr] = useDocument(
+  const [value, loading, collErr] = useDocumentOnce(
     props.app
       .firestore()
       .collection("users")
       .doc(props.user.email)
       .collection("characters")
       .doc("0"),
-    {
-      snapshotListenOptions: { includeMetadataChanges: true }
-    }
+    
   );
 
   if (!value && loading) {
@@ -43,7 +42,10 @@ const Main = props => {
       </div>
     );
   } else {
-    const charData = value && value.data();
+    const charData = value && {
+      ...value.data(),
+      email: props.user.email,
+    };
     const Front = charData ? (
       <Wrapper>
         <FrontPage data={charData} firestore={props.app.firestore()} />
@@ -51,7 +53,10 @@ const Main = props => {
     ) : null;
     const Skills = charData ? (
       <Wrapper>
-        <SkillsPage data={charData} firestore={props.app.firestore()} />
+        <SkillsPage 
+          data={charData} 
+          firestore={props.app.firestore()} 
+        />
       </Wrapper>
     ) : null;
     const Dev = charData ? (
@@ -64,16 +69,23 @@ const Main = props => {
         <MagicSheet {...charData} firestore={props.app.firestore()} />
       </Wrapper>
     ) : null;
+    const Spells = charData ? (
+      <Wrapper>
+        <SpellsSheet magicLists={charData.magicLists} exp={charData.experience} />
+      </Wrapper>
+    ) : null;
+
     return (
       <div style={{display: 'flex', flexDirection: 'column'}}>
         {/* {JSON.stringify(charData)} */}
         
         <Router>
-        <div>
-          <Route exact path="/" component={() => Front} />
-          <Route exact path="/skills" component={() => Skills} />
-          <Route exact path="/devsheet" component={() => Dev} />
-          <Route exact path="/magic" component={() => Magic} />
+          <div>
+            <Route exact path="/" component={() => Front} />
+            <Route exact path="/skills" component={() => Skills} />
+            <Route exact path="/devsheet" component={() => Dev} />
+            <Route exact path="/magic" component={() => Magic} />
+            <Route exact path="/spells" component={() => Spells} />
           </div>
           <div>
             <Footer>
@@ -86,7 +98,10 @@ const Main = props => {
             <span>
               <StyledLink to="devsheet">[Dev Sheet]</StyledLink>
             </span>
-              <span><StyledLink to="magic">[Magic]</StyledLink></span>
+            <span><StyledLink to="magic">[Magic]</StyledLink></span>
+            <span>
+              <StyledLink to="spells">[Spell Lists]</StyledLink>
+            </span>
             </Footer>
           </div>
         </Router>

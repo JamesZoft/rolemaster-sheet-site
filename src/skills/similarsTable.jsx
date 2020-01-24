@@ -1,6 +1,6 @@
 import React from "react";
 import similars from "./similars.json";
-import MainSkillTable from "./mainSkillTable.js";
+import MainSkillTable from "./mainSkillTable.jsx";
 import isEqual from "lodash/isEqual";
 
 const firestoreSave = (firestore, skills) => (skillName, skill) => {

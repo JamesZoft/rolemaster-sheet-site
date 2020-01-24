@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 
 import MainSkillTable from "./mainSkillTable";
 import SimilarsTable from "./similarsTable";
@@ -41,6 +41,7 @@ const Skills = props => {
     <Container>
       <Tables>
         <MainSkillTable data={props.data} firestore={props.firestore} />
+        <div><b>Similars</b></div>
         <SimilarsTable data={props.data} firestore={props.firestore} />
       </Tables>
 

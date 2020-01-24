@@ -78,15 +78,16 @@ const Defenses = props => {
         <tbody>
           {props.defenses.map((defenseLine, i) => {
             const shieldBonus = calculateShieldbonus(defenseLine.shieldType);
+            const quBonus = props.quickness.statBonus + props.quickness.otherBonus + props.quickness.racialBonus;
             return (
               <tr key={i}>
                 {generateTd(defenseLine.mode, "mode", i)}
                 {generateTd(defenseLine.at, "at", i)}
                 {generateTd(defenseLine.shieldType, "shieldType", i)}
                 <td>{shieldBonus}</td>
-                <td>{props.quBonus}</td>
+                <td>{quBonus}</td>
                 {generateTd(defenseLine.otherBonus, "otherBonus", i)}
-                <td>{shieldBonus + props.quBonus + defenseLine.otherBonus}</td>
+                <td>{shieldBonus + quBonus + defenseLine.otherBonus}</td>
               </tr>
             );
           })}

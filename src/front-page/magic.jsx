@@ -35,10 +35,24 @@ const defaultRealmStatMap = {
   essence: "em"
 };
 
+const firestoreSave = (firestore) => (fieldName, value) => {
+  firestore
+    .collection("users")
+    .doc("james@jamesreed.name")
+    .collection("characters")
+    .doc("0")
+    .set(
+      {
+        magic: {
+          [fieldName]: value
+        }
+      },
+      { merge: true }
+    );
+};
+
 const Magic = props => {
-  const [level, setLevel] = useState(
-    props.calculateLevelFromExp(props.experience)
-  );
+  const level = props.calculateLevelFromExp(props.experience);
 
   const defaultRealmStat =
     props.stats[defaultRealmStatMap[props.realm.toLowerCase()]].current;
@@ -48,9 +62,10 @@ const Magic = props => {
     defaultRealmStat,
     props.realm
   );
+  const save = firestoreSave(props.firestore);
 
   const pointsPerLevel = calculatePointsPerLevel(magicStatValue);
-  const [mult, setMult] = useState(props.mult);
+  // const [mult, setMult] = useState(props.mult);
 
   return (
     <Wrapper>
@@ -72,9 +87,9 @@ const Magic = props => {
             <td>{pointsPerLevel}</td>
             <td>{pointsPerLevel * level}</td>
             <td>
-              <input type="number" value={mult} onChange={setMult} />
+              <input type="number" value={props.mult} onChange={e => save('mult', e.target.value)} />
             </td>
-            <td>{pointsPerLevel * level * mult}</td>
+            <td>{pointsPerLevel * level * props.mult}</td>
           </tr>
         </tbody>
       </table>
